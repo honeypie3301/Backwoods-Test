@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "minecraft:iron_nugget"
+    },
+    "Y": {
+      "item": "minecraft:copper_ingot"
+    },
+    "A": {
+      "item": "minecraft:diamond"
+    },
+    "Z": {
+      "item": "minecraft:redstone"
+    },
+    "W": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "pattern": [
+    "XZX",
+    "WAZ",
+    "XYX"
+  ],
+  "result": {
+    "id": "pointblank:processor"
+  },
+  "show_notification": true
+}

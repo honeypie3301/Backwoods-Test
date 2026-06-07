@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "minecraft:glass_pane"
+    },
+    "X": {
+      "item": "pointblank:processor"
+    }
+  },
+  "pattern": [
+    "III",
+    "PPX",
+    "III"
+  ],
+  "result": {
+    "id": "pointblank:printer"
+  },
+  "show_notification": true
+}

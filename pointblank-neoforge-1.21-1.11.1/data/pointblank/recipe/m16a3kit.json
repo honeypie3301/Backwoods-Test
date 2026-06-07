@@ -1,0 +1,16 @@
+{
+  "type": "pointblank:default",
+  "ingredients": [
+    {
+      "count": 7,
+      "item": "pointblank:gunmetal_ingot"
+    },
+    {
+      "count": 2,
+      "item": "pointblank:guninternals"
+    }
+  ],
+  "result": {
+    "item": "pointblank:m16a3kit"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "pointblank:default",
+  "ingredients": [
+    {
+      "count": 3,
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:gunpowder"
+    }
+  ],
+  "result": {
+    "count": 16,
+    "item": "pointblank:ammo762x51"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "pointblank:default",
+  "ingredients": [
+    {
+      "count": 2,
+      "item": "minecraft:copper_ingot"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "count": 3,
+      "item": "minecraft:redstone"
+    }
+  ],
+  "result": {
+    "count": 5,
+    "id": "pointblank:ammolasercharge"
+  }
+}

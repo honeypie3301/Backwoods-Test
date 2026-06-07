@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Specification-Title: Point Blank
+Specification-Vendor: vic4games, vic4gamesteam
+Specification-Version: 1.11.1
+Implementation-Title: Point Blank
+Implementation-Version: 1.11.1
+Implementation-Vendor: vic4games, vic4gamesteam
+Built-On-Minecraft: 1.21
+MixinConfigs: pointblank.mixins.json,pointblank.neoforge.mixins.json,poi
+ ntblank.mixins.compat.iris.json
+

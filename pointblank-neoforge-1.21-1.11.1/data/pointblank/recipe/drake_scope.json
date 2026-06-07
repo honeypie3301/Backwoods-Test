@@ -1,0 +1,20 @@
+{
+  "type": "pointblank:default",
+  "ingredients": [
+    {
+      "count": 3,
+      "item": "pointblank:gunmetal_ingot"
+    },
+    {
+      "count": 8,
+      "item": "minecraft:redstone"
+    },
+    {
+      "count": 5,
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+  "result": {
+    "item": "pointblank:drake_scope"
+  }
+}

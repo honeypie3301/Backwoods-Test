@@ -1,0 +1,24 @@
+{
+  "type": "pointblank:default",
+  "ingredients": [
+    {
+      "count": 29,
+      "item": "pointblank:gunmetal_ingot"
+    },
+    {
+      "count": 8,
+      "item": "pointblank:guninternals"
+    },
+    {
+      "count": 9,
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "count": 2,
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "item": "pointblank:an94"
+  }
+}

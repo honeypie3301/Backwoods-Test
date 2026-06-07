@@ -1,0 +1,12 @@
+{
+  "type": "pointblank:default",
+  "ingredients": [
+    {
+      "count": 3,
+      "item": "pointblank:gunmetal_ingot"
+    }
+  ],
+  "result": {
+    "item": "pointblank:glockstock"
+  }
+}

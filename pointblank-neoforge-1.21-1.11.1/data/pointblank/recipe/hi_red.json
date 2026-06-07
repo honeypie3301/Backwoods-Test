@@ -1,0 +1,20 @@
+{
+  "type": "pointblank:default",
+  "ingredients": [
+    {
+      "count": 2,
+      "item": "pointblank:gunmetal_ingot"
+    },
+    {
+      "count": 6,
+      "item": "minecraft:redstone"
+    },
+    {
+      "count": 3,
+      "tag": "forge:ingots/copper"
+    }
+  ],
+  "result": {
+    "item": "pointblank:hi_red"
+  }
+}

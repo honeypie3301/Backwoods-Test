@@ -1,0 +1,44 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 8,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "main",
+					"pivot": [0, 20, 28]
+				},
+				{
+					"name": "gun",
+					"parent": "main",
+					"pivot": [1, 11, 27],
+					"cubes": [
+						{"origin": [-1.35, 18.7, -2.85], "size": [2.7, 1, 5.7], "uv": [8, 0]},
+						{"origin": [-1.1, 7.1, -1.25], "size": [2.2, 11.75, 2.7], "inflate": 0.001, "uv": [0, 0]},
+						{"origin": [-1.1, 8.1, -1.725], "size": [2.2, 3.75, 1], "pivot": [1.1, 11.85, -1.725], "rotation": [5.5, 0, 0], "uv": [12, 13]},
+						{"origin": [-1.1, 11.85, -1.725], "size": [2.2, 6, 1], "inflate": -0.001, "pivot": [1.1, 11.85, -1.725], "rotation": [-5.5, 0, 0], "uv": [0, 13]},
+						{"origin": [-1.1, 11.85, 0.925], "size": [2.2, 6, 1], "inflate": -0.001, "pivot": [1.1, 11.85, 1.925], "rotation": [5.5, 0, 0], "uv": [8, 6]},
+						{"origin": [-1.1, 8.1, 0.925], "size": [2.2, 3.75, 1], "pivot": [1.1, 11.85, 1.925], "rotation": [-5.5, 0, 0], "uv": [6, 13]},
+						{"origin": [-1.1, 16.675, -2.75], "size": [2.2, 2, 1], "pivot": [1.1, 18.675, -2.75], "rotation": [53.5, 0, 0], "uv": [14, 9]},
+						{"origin": [-1.1, 16.675, 1.75], "size": [2.2, 2, 1], "pivot": [1.1, 18.675, 2.75], "rotation": [-53.5, 0, 0], "uv": [14, 6]}
+					]
+				},
+				{
+					"name": "_ca_grip",
+					"parent": "main",
+					"pivot": [0, 21.325, 8.3],
+					"cubes": [
+						{"origin": [-0.5, 18.45, -0.45], "size": [1, 1, 1], "uv": [27, 9]}
+					]
+				}
+			]
+		}
+	]
+}

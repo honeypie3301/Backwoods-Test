@@ -1,0 +1,17 @@
+{
+    "required": true,
+    "package": "com.vicmatskiv.pointblank.platform.neoforge.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "minVersion": "0.8",
+    "mixins": [
+        "FallbackResourceManagerMixin"
+    ],
+    "client": [
+        "BakedModelMixin",
+        "AbstractContainerScreenMixin",
+        "RenderTargetMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

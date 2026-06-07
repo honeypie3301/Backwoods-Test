@@ -1,0 +1,28 @@
+{
+    "required": true,
+    "package": "com.vicmatskiv.pointblank.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "minVersion": "0.8",
+    "refmap": "pointblank.refmap.json",
+    "mixins": [
+      "EntityMixin",
+      "LivingEntityMixin",
+      "StructureTemplatePoolMixin"
+    ],
+    "client": [
+      "AnimatableManagerAccessor",
+      "AnimationControllerAccessor",
+      "CompositeRenderTypeAccessor",
+      "GameRendererAccessorMixin",
+      "GameRendererMixin",
+      "GuiMixin",
+      "ItemInHandRendererMixin",
+      "LevelRenderMixin",
+      "MinecraftAccessorMixin",
+      "MouseHandlerMixin",
+      "PostPassMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

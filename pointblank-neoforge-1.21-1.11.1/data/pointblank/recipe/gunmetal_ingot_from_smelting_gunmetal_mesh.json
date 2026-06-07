@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "group": "gunmetal_ingot",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "ingredient": {
+    "item": "pointblank:gunmetal_mesh"
+  },
+  "result": {
+    "id": "pointblank:gunmetal_ingot"
+  }
+}

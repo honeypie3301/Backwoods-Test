@@ -1,0 +1,12 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    90,
+    90
+  ],
+  "textures": {
+    "1": "pointblank:block/printer",
+    "particle": "pointblank:block/printer"
+  }
+}

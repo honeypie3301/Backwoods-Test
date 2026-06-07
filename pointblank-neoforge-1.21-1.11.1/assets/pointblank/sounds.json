@@ -1,0 +1,1746 @@
+{
+    "pin": {
+        "sounds": [
+            {
+                "name": "pointblank:pin",
+                "stream": false
+            }
+        ]
+    },
+    "throw": {
+        "sounds": [
+            {
+                "name": "pointblank:throw",
+                "stream": false
+            }
+        ]
+    },
+    "aa12_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:aa12_magout",
+                "stream": false
+            }
+        ]
+    },
+    "aa12_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:aa12_magin",
+                "stream": false
+            }
+        ]
+    },
+	"hit_headshot": {
+        "sounds": [
+            {
+                "name": "pointblank:hit_headshot",
+                "stream": false
+            }
+        ]
+    },
+	"hit_light": {
+        "sounds": [
+            {
+                "name": "pointblank:hit_light",
+                "stream": false
+            }
+        ]
+    },
+	"hit_heavy": {
+        "sounds": [
+            {
+                "name": "pointblank:hit_heavy",
+                "stream": false
+            }
+        ]
+    },
+    "ar57": {
+        "sounds": [
+            {
+                "name": "pointblank:ar57",
+                "stream": false
+            }
+        ]
+    },
+    "g3": {
+        "sounds": [
+            {
+                "name": "pointblank:g3",
+                "stream": false
+            }
+        ]
+    },
+    "g3_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:g3_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "shotgun_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:shotgun_magout",
+                "stream": false
+            }
+        ]
+    },
+    "shotgun_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:shotgun_magin",
+                "stream": false
+            }
+        ]
+    },
+    "g3_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:g3_magout",
+                "stream": false
+            }
+        ]
+    },
+    "g3_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:g3_magin",
+                "stream": false
+            }
+        ]
+    },
+    "laser": {
+        "sounds": [
+            {
+                "name": "pointblank:laser",
+                "stream": false
+            }
+        ]
+    },
+    "laser_charge": {
+        "sounds": [
+            {
+                "name": "pointblank:laser_charge",
+                "stream": false
+            }
+        ]
+    },
+    "laser_open": {
+        "sounds": [
+            {
+                "name": "pointblank:laser_open",
+                "stream": false
+            }
+        ]
+    },
+    "laser_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:laser_magout",
+                "stream": false
+            }
+        ]
+    },
+    "laser_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:laser_magin",
+                "stream": false
+            }
+        ]
+    },
+    "laser_close": {
+        "sounds": [
+            {
+                "name": "pointblank:laser_close",
+                "stream": false
+            }
+        ]
+    },
+    "grenade20mm": {
+        "sounds": [
+            {
+                "name": "pointblank:grenade20mm",
+                "stream": false
+            }
+        ]
+    },
+    "an94": {
+        "sounds": [
+            {
+                "name": "pointblank:an94",
+                "stream": false
+            }
+        ]
+    },
+    "xm29": {
+        "sounds": [
+            {
+                "name": "pointblank:xm29",
+                "stream": false
+            }
+        ]
+    },
+    "xm29_grenade": {
+        "sounds": [
+            {
+                "name": "pointblank:xm29_grenade",
+                "stream": false
+            }
+        ]
+    },
+    "glock_suppressed": {
+        "sounds": [
+            {
+                "name": "pointblank:glock_suppressed",
+                "stream": false
+            }
+        ]
+    },
+    "uar10_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:uar10_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "spas12_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:spas12_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "mk14ebr_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:mk14ebr_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "sl8_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:sl8_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "m1911_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:m1911_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "l96a1_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:l96a1_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "gm6lynx_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:gm6lynx_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "ballista_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:ballista_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "p30l_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:p30l_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "m9_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:m9_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "deserteagle_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:deserteagle_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "rhino_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:rhino_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "launcher_open": {
+        "sounds": [
+            {
+                "name": "pointblank:launcher_open",
+                "stream": false
+            }
+        ]
+    },
+    "launcher_close": {
+        "sounds": [
+            {
+                "name": "pointblank:launcher_close",
+                "stream": false
+            }
+        ]
+    },
+    "ump45_unsilenced": {
+        "sounds": [
+            {
+                "name": "pointblank:ump45_unsilenced",
+                "stream": false
+            }
+        ]
+    },
+    "tmp_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:tmp_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "m950_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:m950_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "vector_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:vector_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "p90_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:p90_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "ak47_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:ak47_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "ak12_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:ak12_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "ak74_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:ak74_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "mp5_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:mp5_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "ro635_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:ro635_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "m4a1_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:m4a1_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "g41_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:g41_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "m4sopmodii_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:m4sopmodii_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "m16a1_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:m16a1_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "hk416": {
+        "sounds": [
+            {
+                "name": "pointblank:hk416",
+                "stream": false
+            }
+        ]
+    },
+    "hk416_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:hk416_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "scarl_unsilenced": {
+        "sounds": [
+            {
+                "name": "pointblank:scarl_unsilenced",
+                "stream": false
+            }
+        ]
+    },
+    "xm7_unsilenced": {
+        "sounds": [
+            {
+                "name": "pointblank:xm7_unsilenced",
+                "stream": false
+            }
+        ]
+    },
+    "aug_silenced": {
+        "sounds": [
+            {
+                "name": "pointblank:aug_silenced",
+                "stream": false
+            }
+        ]
+    },
+    "xm7_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:xm7_magin",
+                "stream": false
+            }
+        ]
+    },
+    "xm7_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:xm7_magout",
+                "stream": false
+            }
+        ]
+    },
+    "xm7_magoutfast": {
+        "sounds": [
+            {
+                "name": "pointblank:xm7_magoutfast",
+                "stream": false
+            }
+        ]
+    },
+    "xm7_chargeback": {
+        "sounds": [
+            {
+                "name": "pointblank:xm7_chargeback",
+                "stream": false
+            }
+        ]
+    },
+    "xm7_chargeforward": {
+        "sounds": [
+            {
+                "name": "pointblank:xm7_chargeforward",
+                "stream": false
+            }
+        ]
+    },
+    "printer_on": {
+        "sounds": [
+            {
+                "name": "pointblank:printer_on",
+                "stream": false
+            }
+        ]
+    },
+    "printer_off": {
+        "sounds": [
+            {
+                "name": "pointblank:printer_off",
+                "stream": false
+            }
+        ]
+    },
+    "crafting_completed": {
+        "sounds": [
+            {
+                "name": "pointblank:crafting_completed",
+                "stream": false
+            }
+        ]
+    },
+    "crafting_in_progress": {
+        "sounds": [
+            {
+                "name": "pointblank:crafting_in_progress",
+                "stream": false
+            }
+        ]
+    },
+    "crafting_item_selected": {
+        "sounds": [
+            {
+                "name": "pointblank:crafting_item_selected",
+                "stream": false
+            }
+        ]
+    },
+    "attachment_added": {
+        "sounds": [
+            {
+                "name": "pointblank:attachment_added",
+                "stream": false
+            }
+        ]
+    },
+    "attachment_removed": {
+        "sounds": [
+            {
+                "name": "pointblank:attachment_removed",
+                "stream": false
+            }
+        ]
+    },
+    "reload": {
+        "sounds": [
+            {
+                "name": "pointblank:mag_insert",
+                "stream": false
+            }
+        ]
+    },
+    "ballista": {
+        "sounds": [
+            {
+                "name": "pointblank:ballista",
+                "stream": false
+            }
+        ]
+    },
+    "ballista_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:ballista_magout",
+                "stream": false
+            }
+        ]
+    },
+    "ballista_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:ballista_magin",
+                "stream": false
+            }
+        ]
+    },
+    "ballista_boltback": {
+        "sounds": [
+            {
+                "name": "pointblank:ballista_boltback",
+                "stream": false
+            }
+        ]
+    },
+    "ballista_boltforward": {
+        "sounds": [
+            {
+                "name": "pointblank:ballista_boltforward",
+                "stream": false
+            }
+        ]
+    },
+    "p90": {
+        "sounds": [
+            {
+                "name": "pointblank:p90",
+                "stream": false
+            }
+        ]
+    },
+    "p90_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:p90_magin",
+                "stream": false
+            }
+        ]
+    },
+    "p90_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:p90_magout",
+                "stream": false
+            }
+        ]
+    },
+    "vector": {
+        "sounds": [
+            {
+                "name": "pointblank:vector",
+                "stream": false
+            }
+        ]
+    },
+    "vector_press": {
+        "sounds": [
+            {
+                "name": "pointblank:vector_press",
+                "stream": false
+            }
+        ]
+    },
+    "vector_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:vector_magin",
+                "stream": false
+            }
+        ]
+    },
+    "scarl_press": {
+        "sounds": [
+            {
+                "name": "pointblank:scarl_press",
+                "stream": false
+            }
+        ]
+    },
+    "deserteagle": {
+        "sounds": [
+            {
+                "name": "pointblank:deserteagle",
+                "stream": false
+            }
+        ]
+    },
+    "deagle_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:deagle_magout",
+                "stream": false
+            }
+        ]
+    },
+    "deagle_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:deagle_magin",
+                "stream": false
+            }
+        ]
+    },
+    "deagle_slide": {
+        "sounds": [
+            {
+                "name": "pointblank:deagle_slide",
+                "stream": false
+            }
+        ]
+    },
+    "ro635": {
+        "sounds": [
+            {
+                "name": "pointblank:ro635",
+                "stream": false
+            }
+        ]
+    },
+    "p30l": {
+        "sounds": [
+            {
+                "name": "pointblank:p30l",
+                "stream": false
+            }
+        ]
+    },
+    "m249": {
+        "sounds": [
+            {
+                "name": "pointblank:m249",
+                "stream": false
+            }
+        ]
+    },
+    "mk48": {
+        "sounds": [
+            {
+                "name": "pointblank:mk48",
+                "stream": false
+            }
+        ]
+    },
+    "rhino": {
+        "sounds": [
+            {
+                "name": "pointblank:rhino",
+                "stream": false
+            }
+        ]
+    },
+    "click": {
+        "sounds": [
+            {
+                "name": "pointblank:click",
+                "stream": false
+            }
+        ]
+    },
+    "revolver_close": {
+        "sounds": [
+            {
+                "name": "pointblank:revolver_close",
+                "stream": false
+            }
+        ]
+    },
+    "revolver_open": {
+        "sounds": [
+            {
+                "name": "pointblank:revolver_open",
+                "stream": false
+            }
+        ]
+    },
+    "revolver_shellsout": {
+        "sounds": [
+            {
+                "name": "pointblank:revolver_shellsout",
+                "stream": false
+            }
+        ]
+    },
+    "revolver_speedloader": {
+        "sounds": [
+            {
+                "name": "pointblank:revolver_speedloader",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_magout_fast": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_magout_fast",
+                "stream": false
+            }
+        ]
+    },
+    "m9": {
+        "sounds": [
+            {
+                "name": "pointblank:m9",
+                "stream": false
+            }
+        ]
+    },
+    "ak_draw": {
+        "sounds": [
+            {
+                "name": "pointblank:ak_draw",
+                "stream": false
+            }
+        ]
+    },
+    "ak_safety": {
+        "sounds": [
+            {
+                "name": "pointblank:ak_safety",
+                "stream": false
+            }
+        ]
+    },
+    "at4_cover": {
+        "sounds": [
+            {
+                "name": "pointblank:at4_cover",
+                "stream": false
+            }
+        ]
+    },
+    "at4_lever": {
+        "sounds": [
+            {
+                "name": "pointblank:at4_lever",
+                "stream": false
+            }
+        ]
+    },
+    "launcher_draw": {
+        "sounds": [
+            {
+                "name": "pointblank:launcher_draw",
+                "stream": false
+            }
+        ]
+    },
+    "launcher_reloadend": {
+        "sounds": [
+            {
+                "name": "pointblank:launcher_reloadend",
+                "stream": false
+            }
+        ]
+    },
+    "launcher_reloadstart": {
+        "sounds": [
+            {
+                "name": "pointblank:launcher_reloadstart",
+                "stream": false
+            }
+        ]
+    },
+    "smaw_load": {
+        "sounds": [
+            {
+                "name": "pointblank:smaw_load",
+                "stream": false
+            }
+        ]
+    },
+    "smaw_turn": {
+        "sounds": [
+            {
+                "name": "pointblank:smaw_turn",
+                "stream": false
+            }
+        ]
+    },
+    "smaw_unload": {
+        "sounds": [
+            {
+                "name": "pointblank:smaw_unload",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_draw": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_draw",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_inspectup": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_inspectup",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_inspectfoley": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_inspectfoley",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_inspectturn": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_inspectturn",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_inspectdown": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_inspectdown",
+                "stream": false
+            }
+        ]
+    },
+    "draw": {
+        "sounds": [
+            {
+                "name": "pointblank:draw",
+                "stream": false
+            }
+        ]
+    },
+    "inspect_up": {
+        "sounds": [
+            {
+                "name": "pointblank:inspect_up",
+                "stream": false
+            }
+        ]
+    },
+    "inspect_foley": {
+        "sounds": [
+            {
+                "name": "pointblank:inspect_foley",
+                "stream": false
+            }
+        ]
+    },
+    "inspect_turn": {
+        "sounds": [
+            {
+                "name": "pointblank:inspect_turn",
+                "stream": false
+            }
+        ]
+    },
+    "inspect_down": {
+        "sounds": [
+            {
+                "name": "pointblank:inspect_down",
+                "stream": false
+            }
+        ]
+    },
+    "uar10": {
+        "sounds": [
+            {
+                "name": "pointblank:uar10",
+                "stream": false
+            }
+        ]
+    },
+    "mgl_shoot": {
+        "sounds": [
+            {
+                "name": "pointblank:mgl_shoot",
+                "stream": false
+            }
+        ]
+    },
+    "mgl_open": {
+        "sounds": [
+            {
+                "name": "pointblank:mgl_open",
+                "stream": false
+            }
+        ]
+    },
+    "mgl_unload": {
+        "sounds": [
+            {
+                "name": "pointblank:mgl_unload",
+                "stream": false
+            }
+        ]
+    },
+    "mgl_load": {
+        "sounds": [
+            {
+                "name": "pointblank:mgl_load",
+                "stream": false
+            }
+        ]
+    },
+    "mgl_close": {
+        "sounds": [
+            {
+                "name": "pointblank:mgl_close",
+                "stream": false
+            }
+        ]
+    },
+    "launcher": {
+        "sounds": [
+            {
+                "name": "pointblank:launcher",
+                "stream": false
+            }
+        ]
+    },
+    "at4": {
+        "sounds": [
+            {
+                "name": "pointblank:at4",
+                "stream": false
+            }
+        ]
+    },
+    "ignite": {
+        "sounds": [
+            {
+                "name": "pointblank:ignite",
+                "stream": false
+            }
+        ]
+    },
+    "locked": {
+        "sounds": [
+            {
+                "name": "pointblank:locked",
+                "stream": false
+            }
+        ]
+    },
+    "locking": {
+        "sounds": [
+            {
+                "name": "pointblank:locking",
+                "stream": false
+            }
+        ]
+    },
+    "minigun_foley": {
+        "sounds": [
+            {
+                "name": "pointblank:minigun_foley",
+                "stream": false
+            }
+        ]
+    },
+    "minigun_load": {
+        "sounds": [
+            {
+                "name": "pointblank:minigun_load",
+                "stream": false
+            }
+        ]
+    },
+    "minigun_unload": {
+        "sounds": [
+            {
+                "name": "pointblank:minigun_unload",
+                "stream": false
+            }
+        ]
+    },
+    "minigunchargeup": {
+        "sounds": [
+            {
+                "name": "pointblank:minigunchargeup",
+                "stream": false
+            }
+        ]
+    },
+    "minigunwinddown": {
+        "sounds": [
+            {
+                "name": "pointblank:minigunwinddown",
+                "stream": false
+            }
+        ]
+    },
+    "m134minigun": {
+        "sounds": [
+            {
+                "name": "pointblank:m134minigun",
+                "stream": false
+            }
+        ]
+    },
+    "dbshotgun_open": {
+        "sounds": [
+            {
+                "name": "pointblank:dbshotgun_open",
+                "stream": false
+            }
+        ]
+    },
+    "dbshotgun_close": {
+        "sounds": [
+            {
+                "name": "pointblank:dbshotgun_close",
+                "stream": false
+            }
+        ]
+    },
+    "citoricxs": {
+        "sounds": [
+            {
+                "name": "pointblank:citoricxs",
+                "stream": false
+            }
+        ]
+    },
+    "hs12": {
+        "sounds": [
+            {
+                "name": "pointblank:hs12",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_hit": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_hit",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_magout",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_magin",
+                "stream": false
+            }
+        ]
+    },
+    "pistol_slide": {
+        "sounds": [
+            {
+                "name": "pointblank:pistol_slide",
+                "stream": false
+            }
+        ]
+    },
+    "m1911a1": {
+        "sounds": [
+            {
+                "name": "pointblank:m1911a1",
+                "stream": false
+            }
+        ]
+    },
+    "glock17": {
+        "sounds": [
+            {
+                "name": "pointblank:glock17",
+                "stream": false
+            }
+        ]
+    },
+    "lmg_bulletchain": {
+        "sounds": [
+            {
+                "name": "pointblank:lmg_bulletchain",
+                "stream": false
+            }
+        ]
+    },
+   "lmg_coverup": {
+        "sounds": [
+            {
+                "name": "pointblank:lmg_coverup",
+                "stream": false
+            }
+        ]
+    },
+    "lmg_coverdown": {
+        "sounds": [
+            {
+                "name": "pointblank:lmg_coverdown",
+                "stream": false
+            }
+        ]
+    },
+    "lmg_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:lmg_magout",
+                "stream": false
+            }
+        ]
+    },
+    "lmg_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:lmg_magin",
+                "stream": false
+            }
+        ]
+    },
+    "lamg": {
+        "sounds": [
+            {
+                "name": "pointblank:lamg",
+                "stream": false
+            }
+        ]
+    },
+    "aa12": {
+        "sounds": [
+            {
+                "name": "pointblank:aa12",
+                "stream": false
+            }
+        ]
+    },
+    "l96a1": {
+        "sounds": [
+            {
+                "name": "pointblank:l96a1",
+                "stream": false
+            }
+        ]
+    },
+    "m950": {
+        "sounds": [
+            {
+                "name": "pointblank:m950",
+                "stream": false
+            }
+        ]
+    },
+    "tmp": {
+        "sounds": [
+            {
+                "name": "pointblank:tmp",
+                "stream": false
+            }
+        ]
+    },
+    "ump45": {
+        "sounds": [
+            {
+                "name": "pointblank:ump45",
+                "stream": false
+            }
+        ]
+    },
+    "mp7": {
+        "sounds": [
+            {
+                "name": "pointblank:mp7",
+                "stream": false
+            }
+        ]
+    },
+    "mp7a2devgru": {
+        "sounds": [
+            {
+                "name": "pointblank:mp7a2devgru",
+                "stream": false
+            }
+        ]
+    },
+    "aug": {
+        "sounds": [
+            {
+                "name": "pointblank:aug",
+                "stream": false
+            }
+        ]
+    },
+    "ak47": {
+        "sounds": [
+            {
+                "name": "pointblank:ak47",
+                "stream": false
+            }
+        ]
+    },
+    "ak74": {
+        "sounds": [
+            {
+                "name": "pointblank:ak74",
+                "stream": false
+            }
+        ]
+    },
+    "ak12": {
+        "sounds": [
+            {
+                "name": "pointblank:ak12",
+                "stream": false
+            }
+        ]
+    },
+    "g36c": {
+        "sounds": [
+            {
+                "name": "pointblank:g36c",
+                "stream": false
+            }
+        ]
+    },
+    "g36k": {
+        "sounds": [
+            {
+                "name": "pointblank:g36k",
+                "stream": false
+            }
+        ]
+    },
+    "sl8": {
+        "sounds": [
+            {
+                "name": "pointblank:sl8",
+                "stream": false
+            }
+        ]
+    },
+    "scarl": {
+        "sounds": [
+            {
+                "name": "pointblank:scarl",
+                "stream": false
+            }
+        ]
+    },
+    "xm7": {
+        "sounds": [
+            {
+                "name": "pointblank:xm7",
+                "stream": false
+            }
+        ]
+    },
+    "m4a1": {
+        "sounds": [
+            {
+                "name": "pointblank:m4a1",
+                "stream": false
+            }
+        ]
+    },
+    "star15": {
+        "sounds": [
+            {
+                "name": "pointblank:star15",
+                "stream": false
+            }
+        ]
+    },
+    "m4sopmodii": {
+        "sounds": [
+            {
+                "name": "pointblank:m4sopmodii",
+                "stream": false
+            }
+        ]
+    },
+    "m16a1": {
+        "sounds": [
+            {
+                "name": "pointblank:m16a1",
+                "stream": false
+            }
+        ]
+    },
+    "mp5": {
+        "sounds": [
+            {
+                "name": "pointblank:mp5",
+                "stream": false
+            }
+        ]
+    },
+    "g41": {
+        "sounds": [
+            {
+                "name": "pointblank:g41",
+                "stream": false
+            }
+        ]
+    },
+    "wa2000": {
+        "sounds": [
+            {
+                "name": "pointblank:wa2000",
+                "stream": false
+            }
+        ]
+    },
+    "wa2000_actionback": {
+        "sounds": [
+            {
+                "name": "pointblank:wa2000_actionback",
+                "stream": false
+            }
+        ]
+    },
+    "wa2000_actionforward": {
+        "sounds": [
+            {
+                "name": "pointblank:wa2000_actionforward",
+                "stream": false
+            }
+        ]
+    },
+    "m590": {
+        "sounds": [
+            {
+                "name": "pointblank:m590",
+                "stream": false
+            }
+        ]
+    },
+    "pump1": {
+        "sounds": [
+            {
+                "name": "pointblank:pump1",
+                "stream": false
+            }
+        ]
+    },
+    "pump2": {
+        "sounds": [
+            {
+                "name": "pointblank:pump2",
+                "stream": false
+            }
+        ]
+    },
+    "shell": {
+        "sounds": [
+            {
+                "name": "pointblank:shell",
+                "stream": false
+            }
+        ]
+    },
+    "shell_chamber": {
+        "sounds": [
+            {
+                "name": "pointblank:shell_chamber",
+                "stream": false
+            }
+        ]
+    },
+    "foley_start": {
+        "sounds": [
+            {
+                "name": "pointblank:foley_start",
+                "stream": false
+            }
+        ]
+    },
+    "foley_end": {
+        "sounds": [
+            {
+                "name": "pointblank:foley_end",
+                "stream": false
+            }
+        ]
+    },
+    "m4_actionback": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_actionback",
+                "stream": false
+            }
+        ]
+    },
+    "m4_actionforward": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_actionforward",
+                "stream": false
+            }
+        ]
+    },
+    "m4_maghit": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_maghit",
+                "stream": false
+            }
+        ]
+    },
+    "m4_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_magin",
+                "stream": false
+            }
+        ]
+    },
+    "m4_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_magout",
+                "stream": false
+            }
+        ]
+    },
+    "m4_magout_throw": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_magout_throw",
+                "stream": false
+            }
+        ]
+    },
+    "m4_magout_throw2": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_magout_throw2",
+                "stream": false
+            }
+        ]
+    },
+    "m4_press": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_press",
+                "stream": false
+            }
+        ]
+    },
+    "m4_hit": {
+        "sounds": [
+            {
+                "name": "pointblank:m4_hit",
+                "stream": false
+            }
+        ]
+    },
+    "xm3": {
+        "sounds": [
+            {
+                "name": "pointblank:xm3",
+                "stream": false
+            }
+        ]
+    },
+    "boltback": {
+        "sounds": [
+            {
+                "name": "pointblank:boltback",
+                "stream": false
+            }
+        ]
+    },
+    "boltforward": {
+        "sounds": [
+            {
+                "name": "pointblank:boltforward",
+                "stream": false
+            }
+        ]
+    },
+    "bulletinsert": {
+        "sounds": [
+            {
+                "name": "pointblank:bulletinsert",
+                "stream": false
+            }
+        ]
+    },
+    "mp5_boltclose": {
+        "sounds": [
+            {
+                "name": "pointblank:mp5_boltclose",
+                "stream": false
+            }
+        ]
+    },
+    "mp5_actionslap": {
+        "sounds": [
+            {
+                "name": "pointblank:mp5_actionslap",
+                "stream": false
+            }
+        ]
+    },
+    "mp5_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:mp5_magout",
+                "stream": false
+            }
+        ]
+    },
+    "mp5_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:mp5_magin",
+                "stream": false
+            }
+        ]
+    },
+    "mp5_actionback": {
+        "sounds": [
+            {
+                "name": "pointblank:mp5_actionback",
+                "stream": false
+            }
+        ]
+    },
+    "mp5_actionup": {
+        "sounds": [
+            {
+                "name": "pointblank:mp5_actionup",
+                "stream": false
+            }
+        ]
+    },
+    "rifle_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:rifle_magin",
+                "stream": false
+            }
+        ]
+    },
+    "rifle_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:rifle_magout",
+                "stream": false
+            }
+        ]
+    },
+    "c14": {
+        "sounds": [
+            {
+                "name": "pointblank:c14",
+                "stream": false
+            }
+        ]
+    },
+    "gm6lynx": {
+        "sounds": [
+            {
+                "name": "pointblank:gm6lynx",
+                "stream": false
+            }
+        ]
+    },
+    "gm6lynx_actionback": {
+        "sounds": [
+            {
+                "name": "pointblank:gm6lynx_actionback",
+                "stream": false
+            }
+        ]
+    },
+    "gm6lynx_actionforward": {
+        "sounds": [
+            {
+                "name": "pointblank:gm6lynx_actionforward",
+                "stream": false
+            }
+        ]
+    },
+    "gm6lynx_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:gm6lynx_magin",
+                "stream": false
+            }
+        ]
+    },
+    "gm6lynx_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:gm6lynx_magout",
+                "stream": false
+            }
+        ]
+    },
+    "m870": {
+        "sounds": [
+            {
+                "name": "pointblank:m870",
+                "stream": false
+            }
+        ]
+    },
+    "spas12": {
+        "sounds": [
+            {
+                "name": "pointblank:spas12",
+                "stream": false
+            }
+        ]
+    },
+    "ak_magout": {
+        "sounds": [
+            {
+                "name": "pointblank:ak_magout",
+                "stream": false
+            }
+        ]
+    },
+    "ak_magin": {
+        "sounds": [
+            {
+                "name": "pointblank:ak_magin",
+                "stream": false
+            }
+        ]
+    },
+    "ak_actionback": {
+        "sounds": [
+            {
+                "name": "pointblank:ak_actionback",
+                "stream": false
+            }
+        ]
+    },
+    "ak_actionforward": {
+        "sounds": [
+            {
+                "name": "pointblank:ak_actionforward",
+                "stream": false
+            }
+        ]
+    },
+    "mk14ebr": {
+        "sounds": [
+            {
+                "name": "pointblank:mk14ebr",
+                "stream": false
+            }
+        ]
+    }
+}

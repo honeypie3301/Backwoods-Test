@@ -1,0 +1,45 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 8,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "main",
+					"pivot": [0, 20, 62.9]
+				},
+				{
+					"name": "gun",
+					"parent": "main",
+					"pivot": [1, 11, 61.9],
+					"cubes": [
+						{"origin": [-1.575, 22.775, -4.85], "size": [3, 3, 9], "inflate": -0.15, "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "_ca_suppressor",
+					"parent": "main",
+					"pivot": [0, 24.375, 4.925],
+					"cubes": [
+						{"origin": [-0.5, 23.875, 4.425], "size": [1, 1, 1], "uv": [27, 69]}
+					]
+				},
+				{
+					"name": "muzzleflash",
+					"parent": "main",
+					"pivot": [-0.05, 24.3, -5.15],
+					"cubes": [
+						{"origin": [-0.55, 23.8, -5.45], "size": [1, 1, 1], "inflate": -0.4, "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,21 @@
+{
+    "required": true,
+    "package": "com.vicmatskiv.pointblank.compat.iris.mixin",
+    "plugin": "com.vicmatskiv.pointblank.compat.iris.mixin.IrisCompatMixinPlugin",
+    "compatibilityLevel": "JAVA_17",
+    "minVersion": "0.8",
+    "refmap": "pointblank.refmap.json",
+    "mixins": [
+    ],
+    "client": [
+        "IrisShadowRendererMixin",
+        "FinalPassRendererMixin",
+        "ProgramSetMixin",
+        "RenderTargetsMixin",
+        "ShadowRendererMixin",
+        "IrisRenderingPipelineMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

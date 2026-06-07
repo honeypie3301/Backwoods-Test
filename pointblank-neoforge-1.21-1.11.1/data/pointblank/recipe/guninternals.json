@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "pointblank:gunmetal_ingot"
+    },
+    "Y": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    " XX",
+    "XYY"
+  ],
+  "result": {
+    "id": "pointblank:guninternals"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 8,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "motor",
+					"pivot": [2.05, 6.2, -13.025],
+					"cubes": [
+						{"origin": [4, 4.125, 0.55], "size": [2, 4, 2.75], "pivot": [1.15, 1.125, -4.4], "rotation": [21.27367, -7.2453, -52.25002], "uv": [0, 0]},
+						{"origin": [6.55, 3.625, 3.3], "size": [2, 2, 1.5], "pivot": [1.15, 1.125, -4.4], "rotation": [22.13056, 3.68039, -79.16754], "uv": [0, 6]},
+						{"origin": [1.15, 1.125, -4.4], "size": [5, 5, 11], "pivot": [1.15, 1.125, -4.4], "rotation": [19.02336, -12.08985, -38.92054], "uv": [0, 0]},
+						{"origin": [1.575, 3.425, -7.75], "size": [2, 2, 4], "inflate": -0.3, "pivot": [1.15, 1.125, -4.4], "rotation": [13.2941, -18.21843, -17.27845], "uv": [16, 16]},
+						{"origin": [-0.75, 2.675, -8], "size": [4.25, 2, 4.25], "inflate": -0.3, "pivot": [1.15, 1.125, -4.4], "rotation": [5.87375, -21.6746, 4.23708], "uv": [0, 16]}
+					]
+				}
+			]
+		}
+	]
+}

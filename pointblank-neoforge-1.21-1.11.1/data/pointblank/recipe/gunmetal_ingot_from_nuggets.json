@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "gunmetal_ingot",
+  "key": {
+    "#": {
+      "item": "pointblank:gunmetal_nugget"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "id": "pointblank:gunmetal_ingot"
+  },
+  "show_notification": true
+}

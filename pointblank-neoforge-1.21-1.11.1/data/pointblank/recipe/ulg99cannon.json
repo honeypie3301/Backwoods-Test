@@ -1,0 +1,24 @@
+{
+  "type": "pointblank:default",
+  "ingredients": [
+    {
+      "count": 8,
+      "item": "pointblank:gunmetal_ingot"
+    },
+    {
+      "count": 5,
+      "item": "pointblank:guninternals"
+    },
+    {
+      "count": 10,
+      "item": "minecraft:redstone"
+    },
+    {
+      "count": 6,
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+  "result": {
+    "id": "pointblank:ulg99cannon"
+  }
+}

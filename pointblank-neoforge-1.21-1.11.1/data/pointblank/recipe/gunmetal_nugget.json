@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "pointblank:gunmetal_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "pointblank:gunmetal_nugget"
+  },
+  "show_notification": true
+}
