@@ -1,5 +1,5 @@
 {
-  "parent": "block/leaves",
+  "parent": "block/cube_all",
   "textures": {
     "all": "the_backwoods:block/dead_leaves",
     "particle": "the_backwoods:block/dead_leaves"

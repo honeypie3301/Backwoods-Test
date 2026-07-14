@@ -1,20 +1,16 @@
 package net.mcreator.thebackwoods.block;
 
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
-import net.neoforged.api.distmarker.OnlyIn;
-import net.neoforged.api.distmarker.Dist;
-
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.BiomeColors;
 
-import net.mcreator.thebackwoods.init.TheBackwoodsModBlocks;
+import net.mcreator.thebackwoods.procedures.DecayingLeavesEntityFallsOnTheBlockProcedure;
 
 public class DecayingLeavesBlock extends LeavesBlock {
 	public DecayingLeavesBlock() {
@@ -27,10 +23,9 @@ public class DecayingLeavesBlock extends LeavesBlock {
 		return 14;
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public static void blockColorLoad(RegisterColorHandlersEvent.Block event) {
-		event.getBlockColors().register((bs, world, pos, index) -> {
-			return world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor();
-		}, TheBackwoodsModBlocks.DECAYING_LEAVES.get());
+	@Override
+	public void fallOn(Level world, BlockState blockstate, BlockPos pos, Entity entity, float distance) {
+		super.fallOn(world, blockstate, pos, entity, distance);
+		DecayingLeavesEntityFallsOnTheBlockProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 	}
 }

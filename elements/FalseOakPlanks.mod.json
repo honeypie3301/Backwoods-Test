@@ -142,8 +142,8 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onEntityWalksOn": {
-      "name": "FalseOakPlanksEntityWalksOnTheBlock"
+    "onEntityFallsOn": {
+      "name": "FalseOakPlanksEntityFallsOnTheBlock"
     },
     "generateFeature": false,
     "restrictionBiomes": [],

@@ -8,7 +8,7 @@
     "textureFront": "dead_leaves",
     "textureRight": "dead_leaves",
     "textureBack": "dead_leaves",
-    "renderType": 110,
+    "renderType": 11,
     "customModelName": "Single texture",
     "rotationMode": 0,
     "enablePitch": false,
@@ -21,7 +21,7 @@
     "blockBase": "Leaves",
     "blockSetType": "OAK",
     "leavesParticleChance": 0.01,
-    "tintType": "Foliage",
+    "tintType": "No tint",
     "isItemTinted": false,
     "hasTransparency": true,
     "connectedSides": false,
@@ -142,6 +142,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onEntityFallsOn": {
+      "name": "DecayingLeavesEntityFallsOnTheBlock"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

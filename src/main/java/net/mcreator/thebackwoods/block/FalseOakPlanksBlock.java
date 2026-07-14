@@ -12,7 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.thebackwoods.procedures.FalseOakPlanksEntityWalksOnTheBlockProcedure;
+import net.mcreator.thebackwoods.procedures.FalseOakPlanksEntityFallsOnTheBlockProcedure;
 
 public class FalseOakPlanksBlock extends LeavesBlock {
 	public FalseOakPlanksBlock() {
@@ -30,8 +30,8 @@ public class FalseOakPlanksBlock extends LeavesBlock {
 	}
 
 	@Override
-	public void stepOn(Level world, BlockPos pos, BlockState blockstate, Entity entity) {
-		super.stepOn(world, pos, blockstate, entity);
-		FalseOakPlanksEntityWalksOnTheBlockProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
+	public void fallOn(Level world, BlockState blockstate, BlockPos pos, Entity entity, float distance) {
+		super.fallOn(world, blockstate, pos, entity, distance);
+		FalseOakPlanksEntityFallsOnTheBlockProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 	}
 }

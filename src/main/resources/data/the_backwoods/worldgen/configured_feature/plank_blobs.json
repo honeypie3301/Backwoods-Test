@@ -5,7 +5,7 @@
       "Name": "the_backwoods:lignum_caro"
     },
     "state": {
-      "Name": "minecraft:oak_wood"
+      "Name": "minecraft:oak_planks"
     },
     "radius": {
       "type": "uniform",

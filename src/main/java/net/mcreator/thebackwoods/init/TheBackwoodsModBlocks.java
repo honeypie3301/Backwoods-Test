@@ -5,10 +5,6 @@ package net.mcreator.thebackwoods.init;
 
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
 
@@ -121,14 +117,6 @@ public class TheBackwoodsModBlocks {
 		LIGNUM_CARO = REGISTRY.register("lignum_caro", LignumCaroBlock::new);
 		DECAYING_LEAVES = REGISTRY.register("decaying_leaves", DecayingLeavesBlock::new);
 	}
-
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
-	@EventBusSubscriber(Dist.CLIENT)
-	public static class BlocksClientSideHandler {
-		@SubscribeEvent
-		public static void blockColorLoad(RegisterColorHandlersEvent.Block event) {
-			DecayingLeavesBlock.blockColorLoad(event);
-		}
-	}
 }

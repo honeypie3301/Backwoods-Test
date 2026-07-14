@@ -34,7 +34,7 @@ public class TestDummyCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			GemZombieSummonProcedure.execute(world, x, y, z, arguments);
+			GemZombieSummonProcedure.execute(world, x, y, z, arguments, entity);
 			return 0;
 		}))).then(Commands.literal("infinity").then(Commands.argument("count", DoubleArgumentType.doubleArg()).executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -48,7 +48,7 @@ public class TestDummyCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			InfinityZombieSummonProcedure.execute(world, x, y, z, arguments);
+			InfinityZombieSummonProcedure.execute(world, x, y, z, arguments, entity);
 			return 0;
 		}))));
 	}

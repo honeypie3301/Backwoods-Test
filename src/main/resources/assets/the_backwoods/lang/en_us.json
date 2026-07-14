@@ -363,5 +363,12 @@
   "item.the_backwoods.lignum_compost": "Lignum Compost",
   "item.the_backwoods.scandere_resin": "Scandere Resin",
   "item.the_backwoods.crystallized_scandere_resin": "Crystallized Scandere Resin",
-  "block.the_backwoods.decaying_leaves": "Decaying Leaves"
+  "block.the_backwoods.decaying_leaves": "Decaying Leaves",
+  "item.the_backwoods.lignum_caro_sword": "Lignum Caro Sword",
+  "item.the_backwoods.lignum_caro_ash": "Lignum Caro Ash",
+  "effect.the_backwoods.inoculation_effect": "Inoculation",
+  "item.minecraft.potion.effect.inoculation": "Potion of Inoculation",
+  "item.minecraft.splash_potion.effect.inoculation": "Splash Potion of Inoculation",
+  "item.minecraft.tipped_arrow.effect.inoculation": "Arrow of Inoculation",
+  "item.minecraft.lingering_potion.effect.inoculation": "Lingering Potion of Inoculation"
 }

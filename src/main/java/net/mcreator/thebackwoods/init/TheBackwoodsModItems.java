@@ -154,6 +154,8 @@ public class TheBackwoodsModItems {
 	public static final DeferredItem<Item> SCANDERE_RESIN;
 	public static final DeferredItem<Item> CRYSTALLIZED_SCANDERE_RESIN;
 	public static final DeferredItem<Item> DECAYING_LEAVES;
+	public static final DeferredItem<Item> LIGNUM_CARO_SWORD;
+	public static final DeferredItem<Item> LIGNUM_CARO_ASH;
 	static {
 		BACKWOODS = REGISTRY.register("backwoods", BackwoodsItem::new);
 		SPLINTER_SPAWN_EGG = REGISTRY.register("splinter_spawn_egg", () -> new DeferredSpawnEggItem(TheBackwoodsModEntities.SPLINTER, -7643606, -3632054, new Item.Properties()));
@@ -290,6 +292,8 @@ public class TheBackwoodsModItems {
 		SCANDERE_RESIN = REGISTRY.register("scandere_resin", ScandereResinItem::new);
 		CRYSTALLIZED_SCANDERE_RESIN = REGISTRY.register("crystallized_scandere_resin", CrystallizedScandereResinItem::new);
 		DECAYING_LEAVES = block(TheBackwoodsModBlocks.DECAYING_LEAVES);
+		LIGNUM_CARO_SWORD = REGISTRY.register("lignum_caro_sword", LignumCaroSwordItem::new);
+		LIGNUM_CARO_ASH = REGISTRY.register("lignum_caro_ash", LignumCaroAshItem::new);
 	}
 
 	// Start of user code block custom items

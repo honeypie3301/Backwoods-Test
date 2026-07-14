@@ -41,6 +41,7 @@ public class TheBackwoodsModTabs {
 			tabData.accept(TheBackwoodsModItems.NULL_POINTERAXE.get());
 			tabData.accept(TheBackwoodsModItems.LIGNUM_COMPOST.get());
 			tabData.accept(TheBackwoodsModItems.CRYSTALLIZED_SCANDERE_RESIN.get());
+			tabData.accept(TheBackwoodsModItems.LIGNUM_CARO_SWORD.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
 			tabData.accept(TheBackwoodsModItems.SPLINTER_SPAWN_EGG.get());
 			tabData.accept(TheBackwoodsModItems.HOLLOW_SPAWN_EGG.get());
@@ -130,6 +131,7 @@ public class TheBackwoodsModTabs {
 			tabData.accept(TheBackwoodsModItems.FRACTUS_CORE_NUGGET.get());
 			tabData.accept(TheBackwoodsModBlocks.FRACTUS_PRIME_CORE.get().asItem());
 			tabData.accept(TheBackwoodsModItems.CRYSTALLIZED_SCANDERE_RESIN.get());
+			tabData.accept(TheBackwoodsModItems.LIGNUM_CARO_ASH.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
 			tabData.accept(TheBackwoodsModItems.PALE_REMEDY.get());
 			tabData.accept(TheBackwoodsModItems.PALE_DRAUGHT_BOTTLE.get());
