@@ -12,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.thebackwoods.procedures.FalseOakPlanksEntityWalksOnTheBlockProcedure;
 import net.mcreator.thebackwoods.procedures.FalseOakPlanksEntityFallsOnTheBlockProcedure;
 
 public class FalseOakPlanksBlock extends LeavesBlock {
@@ -27,6 +28,12 @@ public class FalseOakPlanksBlock extends LeavesBlock {
 	@Override
 	public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
 		return 60;
+	}
+
+	@Override
+	public void stepOn(Level world, BlockPos pos, BlockState blockstate, Entity entity) {
+		super.stepOn(world, pos, blockstate, entity);
+		FalseOakPlanksEntityWalksOnTheBlockProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 	}
 
 	@Override
