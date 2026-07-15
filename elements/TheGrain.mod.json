@@ -39,7 +39,7 @@
     "useCustomEffects": true,
     "hasClouds": false,
     "cloudHeight": 192,
-    "skyType": "NORMAL",
+    "skyType": "NONE",
     "airColor": {
       "value": -6321344,
       "falpha": 0.0

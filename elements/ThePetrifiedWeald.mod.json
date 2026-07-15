@@ -37,6 +37,10 @@
     "hasClouds": false,
     "cloudHeight": 192,
     "skyType": "NONE",
+    "airColor": {
+      "value": -15591918,
+      "falpha": 0.0
+    },
     "sunHeightAffectsFog": false,
     "canRespawnHere": true,
     "hasFog": true,
