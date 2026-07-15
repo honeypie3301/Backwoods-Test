@@ -9,24 +9,24 @@
           "biome": "the_backwoods:weald_outskirts",
           "parameters": {
             "temperature": [
-              -0.5,
-              0
+              -0.4256,
+              -0.0744
             ],
             "humidity": [
-              -0.5,
-              0
+              -0.4256,
+              -0.0744
             ],
             "continentalness": [
-              -0.5,
-              0.5
+              -0.3513,
+              0.3513
             ],
             "weirdness": [
-              0,
-              0.3
+              0.0445,
+              0.2555
             ],
             "erosion": [
-              0.2,
-              0.5
+              0.2445,
+              0.4555
             ],
             "depth": 0,
             "offset": 0

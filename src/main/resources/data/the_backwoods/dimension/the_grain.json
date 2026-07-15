@@ -9,24 +9,24 @@
           "biome": "the_backwoods:uniform_grain",
           "parameters": {
             "temperature": [
-              -0.5,
-              0.5
+              -0.221,
+              0.221
             ],
             "humidity": [
-              -0.3,
-              0.5
+              -0.0769,
+              0.2769
             ],
             "continentalness": [
-              -1,
-              0.2
+              -0.6654,
+              -0.1346
             ],
             "weirdness": [
-              -1,
-              -0.3
+              -0.8046,
+              -0.4954
             ],
             "erosion": [
-              -1,
-              0.2
+              -0.6654,
+              -0.1346
             ],
             "depth": 0,
             "offset": 0

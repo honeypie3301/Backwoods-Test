@@ -38,7 +38,7 @@ public class LignumCaroSwordItem extends SwordItem {
 
 		@Override
 		public int getEnchantmentValue() {
-			return 2;
+			return 15;
 		}
 
 		@Override
