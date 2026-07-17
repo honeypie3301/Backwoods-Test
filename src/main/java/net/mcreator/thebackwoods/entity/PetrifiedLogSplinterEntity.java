@@ -149,7 +149,7 @@ public class PetrifiedLogSplinterEntity extends Monster {
 	@Override
 	public void die(DamageSource source) {
 		super.die(source);
-		SplinterEntityDiesProcedure.execute(this.level(), source.getEntity());
+		SplinterEntityDiesProcedure.execute(this.level(), this, source.getEntity());
 	}
 
 	@Override

@@ -18,7 +18,7 @@
     ],
     "stackSize": 64,
     "enchantability": 0,
-    "useDuration": 0,
+    "useDuration": 60,
     "toolType": 1.0,
     "damageCount": 0,
     "recipeRemainder": {
@@ -44,6 +44,9 @@
     },
     "inventorySize": 9,
     "inventoryStackSize": 99,
+    "onFinishUsingItem": {
+      "name": "LignumCaroAshPlayerFinishesUsingItem"
+    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,
@@ -52,13 +55,13 @@
     },
     "projectileDisableAmmoCheck": false,
     "isFood": false,
-    "nutritionalValue": 4,
-    "saturation": 0.3,
+    "nutritionalValue": 0,
+    "saturation": 0.0,
     "eatResultItem": {
       "value": ""
     },
     "isMeat": false,
-    "isAlwaysEdible": false,
+    "isAlwaysEdible": true,
     "animation": "none",
     "isMusicDisc": false,
     "musicDiscMusic": {

@@ -55,6 +55,7 @@ public class SplinterEntity extends Monster {
 	public static final EntityDataAccessor<Integer> DATA_isEnraged = SynchedEntityData.defineId(SplinterEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_stalkTimer = SynchedEntityData.defineId(SplinterEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_Age = SynchedEntityData.defineId(SplinterEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<String> DATA_SelectedName = SynchedEntityData.defineId(SplinterEntity.class, EntityDataSerializers.STRING);
 
 	public SplinterEntity(EntityType<SplinterEntity> type, Level world) {
 		super(type, world);
@@ -76,6 +77,7 @@ public class SplinterEntity extends Monster {
 		builder.define(DATA_isEnraged, 0);
 		builder.define(DATA_stalkTimer, 0);
 		builder.define(DATA_Age, 0);
+		builder.define(DATA_SelectedName, "");
 	}
 
 	@Override
@@ -145,7 +147,7 @@ public class SplinterEntity extends Monster {
 	@Override
 	public void die(DamageSource source) {
 		super.die(source);
-		SplinterEntityDiesProcedure.execute(this.level(), source.getEntity());
+		SplinterEntityDiesProcedure.execute(this.level(), this, source.getEntity());
 	}
 
 	@Override
@@ -169,6 +171,7 @@ public class SplinterEntity extends Monster {
 		compound.putInt("DataisEnraged", this.entityData.get(DATA_isEnraged));
 		compound.putInt("DatastalkTimer", this.entityData.get(DATA_stalkTimer));
 		compound.putInt("DataAge", this.entityData.get(DATA_Age));
+		compound.putString("DataSelectedName", this.entityData.get(DATA_SelectedName));
 	}
 
 	@Override
@@ -196,6 +199,8 @@ public class SplinterEntity extends Monster {
 			this.entityData.set(DATA_stalkTimer, compound.getInt("DatastalkTimer"));
 		if (compound.contains("DataAge"))
 			this.entityData.set(DATA_Age, compound.getInt("DataAge"));
+		if (compound.contains("DataSelectedName"))
+			this.entityData.set(DATA_SelectedName, compound.getString("DataSelectedName"));
 	}
 
 	@Override

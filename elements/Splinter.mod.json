@@ -279,6 +279,11 @@
         "name": "Age",
         "type": "integer",
         "value": 0
+      },
+      {
+        "name": "SelectedName",
+        "type": "string",
+        "value": ""
       }
     ],
     "onStruckByLightning": {
