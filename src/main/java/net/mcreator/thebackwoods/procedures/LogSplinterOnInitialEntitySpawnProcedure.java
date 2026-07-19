@@ -73,11 +73,11 @@ public class LogSplinterOnInitialEntitySpawnProcedure {
 					"cave_game_player", "ruby_miner", "emerald_trader", "villager_scammer", "iron_golem_killer", "snow_golem_builder", "wither_summoner", "ender_dragon_slayer", "warden_hunter", "elder_guardian_killer", "ravager_rider",
 					"evoker_summoner", "vindicator_axeman", "pillager_crossbowman", "illusioner_blinder", "witch_brewer", "phantom_flyer", "drowned_swimmer", "husk_walker", "stray_archer", "stxr_gazer", "vxid_walker", "lxnar_eclipse", "sxlar_flare",
 					"nxva_star", "cxsmic_dust", "gxalaxy_quest", "nxbulous_cloud", "axstral_projection", "cxelestial_being", "Ghost_Ninja", "Phantom_Slayer", "Ender_Mage", "Pixel_God", "Block_Breaker", "Iron_Golem", "Diamond_Miner", "Lava_Swimmer",
-					"Redstone_Genius", "TNT_Lover", "Creeper_Hugger", "Pigman_Fighter", "Zombie_Hunter", "Skeleton_Archer", "Spider_Rider", "Slime_Bouncer", "Enderman_Stater", "Dragon_Tamer", "Wither_Warrior", "Blaze_Rod", "Ghast_Tear", "Magma_Cube",
-					"Silverfish_Swarm", "Witch_Doctor", "Bat_Man", "Villager_Trader", "Iron_Sword", "Gold_Pickaxe", "Diamond_Armor", "Nether_Portal", "End_City", "Stronghold_Finder", "Mineshaft_Explorer", "Dungeon_Looter", "Temple_Raider",
-					"Village_Hero", "Raid_Captain", "Pillager_Outpost", "Ocean_Monument", "Woodland_Mansion", "Jungle_Temple", "Desert_Pyramid", "Igloo_Dweller", "Swamp_Hut", "Nether_Fortress", "Bastion_Remnant", "Ruined_Portal",
-					"Shipwreck_Survivor", "Buried_Treasure", "Amethyst_Geode", "Lush_Cave", "Dripstone_Cave", "Deep_Dark", "Ancient_City", "Warden_Slayer", "Wither_Skeleton", "Piglin_Brute", "Hoglin_Hunter", "Strider_Rider", "Zoglin_Tamer",
-					"NoobMaster77", "Sweaty_PVP", "GodBridge_Pro", "Block_Placer99", "BedWars_Tryhard", "SkyWars_Sweat", "UHC_Veteran", "Survival_Pro", "Creative_Master", "Redstone_Engineer"};
+					"Redstone_Genius", "TNT_Lover", "Creeper_Hugger", "Pigman_Fighter", "Zombie_Hunter", "Skeleton_Archer", "Spider_Rider", "Slime_Bouncer", "Enderman_Stater", "Dragon_Tamer", "Wither_Warrior", "Blaze_Rod", "Alterna43", "SlateBrick",
+					"LivingChili", "Drosera_Amethyst", "Ghast_Tear", "Magma_Cube", "Silverfish_Swarm", "Witch_Doctor", "Bat_Man", "Villager_Trader", "Iron_Sword", "Gold_Pickaxe", "Diamond_Armor", "Nether_Portal", "End_City", "Stronghold_Finder",
+					"Mineshaft_Explorer", "Dungeon_Looter", "Temple_Raider", "Village_Hero", "Raid_Captain", "Pillager_Outpost", "Ocean_Monument", "Woodland_Mansion", "Jungle_Temple", "Desert_Pyramid", "Igloo_Dweller", "Swamp_Hut", "Nether_Fortress",
+					"Bastion_Remnant", "Ruined_Portal", "Shipwreck_Survivor", "Buried_Treasure", "Amethyst_Geode", "Lush_Cave", "Dripstone_Cave", "Deep_Dark", "Ancient_City", "Warden_Slayer", "Wither_Skeleton", "Piglin_Brute", "Hoglin_Hunter",
+					"Strider_Rider", "Zoglin_Tamer", "NoobMaster77", "Sweaty_PVP", "GodBridge_Pro", "Block_Placer99", "BedWars_Tryhard", "SkyWars_Sweat", "UHC_Veteran", "Survival_Pro", "Creative_Master", "Redstone_Engineer"};
 			entity.getPersistentData().putString("SplinterUsername", formerPlayers[(int) (Math.random() * formerPlayers.length)]);
 		}
 		if (entity instanceof LivingEntity _livingEntity0 && _livingEntity0.getAttributes().hasAttribute(Attributes.SAFE_FALL_DISTANCE))

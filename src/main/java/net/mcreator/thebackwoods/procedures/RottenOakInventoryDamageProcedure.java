@@ -10,11 +10,14 @@ import net.neoforged.bus.api.Event;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
+
+import net.mcreator.thebackwoods.init.TheBackwoodsModMobEffects;
 
 import javax.annotation.Nullable;
 
@@ -33,7 +36,7 @@ public class RottenOakInventoryDamageProcedure {
 		if (entity == null)
 			return;
 		if (world.getLevelData().getGameTime() % 45 == 0) {
-			if (entity instanceof Player) {
+			if (!(entity instanceof LivingEntity _livEnt0 && _livEnt0.hasEffect(TheBackwoodsModMobEffects.INOCULATION_EFFECT)) && entity instanceof LivingEntity) {
 				if (!(entity instanceof Player _plr ? _plr.getAbilities().instabuild : false)) {
 					if (entity.getCapability(Capabilities.ItemHandler.ENTITY, null) instanceof IItemHandlerModifiable _modHandlerIter) {
 						for (int _idx = 0; _idx < _modHandlerIter.getSlots(); _idx++) {
