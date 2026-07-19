@@ -41,7 +41,7 @@ public class LignumGigasEntity extends Monster {
 	public LignumGigasEntity(EntityType<LignumGigasEntity> type, Level world) {
 		super(type, world);
 		xpReward = 500;
-		setNoAi(true);
+		setNoAi(false);
 		setPersistenceRequired();
 		refreshDimensions();
 	}
@@ -58,6 +58,12 @@ public class LignumGigasEntity extends Monster {
 		builder.define(DATA_aura_time_left, 0);
 		builder.define(DATA_aura_sound_cd, 0);
 		builder.define(DATA_seq_t, 0);
+	}
+
+	@Override
+	protected void registerGoals() {
+		super.registerGoals();
+
 	}
 
 	@Override
@@ -188,7 +194,7 @@ public class LignumGigasEntity extends Monster {
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
 		builder = builder.add(Attributes.STEP_HEIGHT, 7);
-		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
+		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 777);
 		return builder;
 	}
 }

@@ -1,7 +1,7 @@
 package net.mcreator.thebackwoods.procedures;
 
 import net.mcreator.thebackwoods.entity.LignumGigasEntity;
-// 1.21.1 neoforge
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -39,6 +39,14 @@ public class LignumGigasOnEntityTickUpdateProcedure {
 		if (gigas == null) return;
 		Level level = gigas.level();
 		if (level.isClientSide()) return;
+
+		// Prevent the giant boss from being pushed horizontally by players or collision physics
+		Vec3 delta = gigas.getDeltaMovement();
+		if (delta.x != 0 || delta.z != 0) {
+			gigas.setDeltaMovement(0, delta.y, 0);
+			gigas.hurtMarked = true;
+		}
+
 		if (!gigas.getEntityData().get(LignumGigasEntity.DATA_seq_active)) return;
 
 		int t = gigas.getEntityData().get(LignumGigasEntity.DATA_seq_t) + 1;
@@ -174,7 +182,7 @@ public class LignumGigasOnEntityTickUpdateProcedure {
 		if (!off.isEmpty()) {
 			p.drop(off.copy(), true, false);
 			p.setItemSlot(EquipmentSlot.OFFHAND, ItemStack.EMPTY);
-		}
+		} // 1.21.1
 
 		p.getInventory().setChanged();
 	}

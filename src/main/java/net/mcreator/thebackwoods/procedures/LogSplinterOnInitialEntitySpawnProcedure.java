@@ -8,7 +8,7 @@ public class LogSplinterOnInitialEntitySpawnProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		if (Math.random() < 0.05) {
+		if (Math.random() < 0.015) {
 			String[] formerPlayers = {"+_+", "-_-", "._.", "^_^", "_-_", "_=_", "$Money$", "0_0", "_0ft3n_", "_0rd3r_", "_0ught_", "_0urs_", "_0utc0m3_", "_1_", "123456789_", "1337_h4x0r", "_1llus10n_", "_1mp4ct_", "_1nflu3nc3_", "_1nt3ll1g3nc3_",
 					"_1nt3nt10n_", "_1t_", "1tap", "_1ts_", "1v1_me_bro", "2tap", "_3cl1ps3_", "_3ff3ct_", "<3_Gamer_<3", "_3l3ctr0_", "_3n3rgy_", "_3nd_", "_3v3rywh3r3_", "_3x4ctly_", "_4b0ut_", "_4byss_", "_4ct10n_", "_4ctu4l_", "_4g1l1ty_",
 					"_4lw4ys_", "_4ng3r_", "_4nt1m4tt3r_", "_4nywh3r3_", "_4ppr0x1m4t3ly_", "_4r0und_", "_4sk_", "_4t0m1c_", "4utumn", "69_420_blaze_it", "_a3r0_", "A3ro", "a6d", "Ab0ut", "Abys5", "_Accepted_", "Act1on", "_Active_", "_Added_",

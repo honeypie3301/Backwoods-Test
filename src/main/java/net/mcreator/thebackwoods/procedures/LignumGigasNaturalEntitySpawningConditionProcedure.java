@@ -124,6 +124,7 @@ public class LignumGigasNaturalEntitySpawningConditionProcedure {
 				);
 
 				if (spawned != null) {
+					spawned.setNoGravity(false);
 					// Face center
 					double dx = x - spawned.getX();
 					double dz = z - spawned.getZ();
@@ -143,7 +144,7 @@ public class LignumGigasNaturalEntitySpawningConditionProcedure {
 
 		if (spawnedCount > 0) {
 			lastRingSpawnGameTime = now;
-		}
+		} // 1.21.1
 
 		return false;
 	}

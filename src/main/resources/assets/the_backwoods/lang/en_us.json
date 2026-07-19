@@ -370,5 +370,6 @@
   "item.minecraft.potion.effect.inoculation": "Potion of Inoculation",
   "item.minecraft.splash_potion.effect.inoculation": "Splash Potion of Inoculation",
   "item.minecraft.tipped_arrow.effect.inoculation": "Arrow of Inoculation",
-  "item.minecraft.lingering_potion.effect.inoculation": "Lingering Potion of Inoculation"
+  "item.minecraft.lingering_potion.effect.inoculation": "Lingering Potion of Inoculation",
+  "item_group.the_backwoods.backwoods_tab": "Backwoods"
 }
