@@ -6,8 +6,45 @@
     "texture": "memory_shard",
     "customModelName": "Normal",
     "guiTexture": "",
-    "customProperties": {},
-    "states": [],
+    "customProperties": {
+      "mode": {
+        "name": "GetMemoryShardMode"
+      }
+    },
+    "states": [
+      {
+        "renderType": 0,
+        "texture": "memory_shard",
+        "customModelName": "Normal",
+        "stateMap": [
+          {
+            "property": {
+              "min": -1.7976931348623157E308,
+              "max": 1.7976931348623157E308,
+              "name": "CUSTOM:mode",
+              "type": "number"
+            },
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "renderType": 0,
+        "texture": "memory_shard_chrono_stasis",
+        "customModelName": "Normal",
+        "stateMap": [
+          {
+            "property": {
+              "min": -1.7976931348623157E308,
+              "max": 1.7976931348623157E308,
+              "name": "CUSTOM:mode",
+              "type": "number"
+            },
+            "value": 1.0
+          }
+        ]
+      }
+    ],
     "animations": [],
     "name": "Memory Shard",
     "rarity": "COMMON",
@@ -44,6 +81,9 @@
     },
     "inventorySize": 9,
     "inventoryStackSize": 99,
+    "onRightClickedInAir": {
+      "name": "MemoryShardRightclicked"
+    },
     "enableRanged": false,
     "shootConstantly": false,
     "rangedItemChargesPower": false,

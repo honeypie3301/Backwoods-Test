@@ -748,6 +748,19 @@ private static float lerpAngle(float pct, float start, float end) {
 			entity.getPersistentData().putDouble("sentinel_laser_heat", Math.max(0.0, heat - 0.25));
 		}
 
+		// Instant immune and purge of soul fracture effect (the rot has no soul)
+		if (entity instanceof LivingEntity living) {
+			BuiltInRegistries.MOB_EFFECT.getHolder(ResourceLocation.parse("legendary_monsters:soul_fracture")).ifPresent(soulFractureHolder -> {
+				if (living.hasEffect(soulFractureHolder)) {
+					living.removeEffect(soulFractureHolder);
+					if (world instanceof ServerLevel level) {
+						level.sendParticles(ParticleTypes.SOUL, living.getX(), living.getY() + living.getBbHeight() * 0.5, living.getZ(), 15, 0.3, 0.3, 0.3, 0.03);
+						level.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, living.getX(), living.getY() + living.getBbHeight() * 0.5, living.getZ(), 10, 0.3, 0.3, 0.3, 0.02);
+					}
+				}
+			});
+		}
+
 		// Adapt against Mowzie's Mobs Frostmaw freeze / generic freeze
 			if (entity instanceof net.minecraft.world.entity.Mob mob) {
 				BuiltInRegistries.MOB_EFFECT.getHolder(ResourceLocation.parse("mowziesmobs:frozen")).ifPresent(frozenHolder -> {

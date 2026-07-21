@@ -34,11 +34,11 @@
     "attributeModifiers": [],
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
-    "onCrafted": {
-      "name": "FadedSwordItemIsCraftedsmelted"
-    },
     "onEntityHitWith": {
       "name": "FadedSwordLivingEntityIsHitWithTool"
+    },
+    "onItemInInventoryTick": {
+      "name": "FadedToolInInventoryTick"
     }
   }
 }

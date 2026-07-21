@@ -109,6 +109,8 @@ public class TheBackwoodsModTabs {
 			tabData.accept(TheBackwoodsModBlocks.COBBLED_NULLSTONE_STAIR.get().asItem());
 			tabData.accept(TheBackwoodsModBlocks.COBBLED_NULLSTONE_WALL.get().asItem());
 			tabData.accept(TheBackwoodsModBlocks.LIGNUM_CARO.get().asItem());
+			tabData.accept(TheBackwoodsModBlocks.SPLINTERED_OAK_PLANKS.get().asItem());
+			tabData.accept(TheBackwoodsModBlocks.LIGNUM_CARO_TRAPDOOR.get().asItem());
 		} else if (tabData.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 			tabData.accept(TheBackwoodsModItems.SEEP.get());
 			tabData.accept(TheBackwoodsModItems.ROTTEN_STICK.get());
@@ -126,6 +128,7 @@ public class TheBackwoodsModTabs {
 			tabData.accept(TheBackwoodsModItems.DISTORTED_MEMORY_FRAGMENT.get());
 			tabData.accept(TheBackwoodsModItems.RECOVERED_MEMORY_FRAGMENT.get());
 			tabData.accept(TheBackwoodsModItems.PETRIFIED_RESIN.get());
+			tabData.accept(TheBackwoodsModItems.COMPACT_PETRIFIED_RESIN.get());
 			tabData.accept(TheBackwoodsModItems.MEMORY_SHARD.get());
 			tabData.accept(TheBackwoodsModBlocks.FRACTUS_CORE.get().asItem());
 			tabData.accept(TheBackwoodsModItems.FRACTUS_CORE_NUGGET.get());
@@ -170,6 +173,8 @@ public class TheBackwoodsModTabs {
 			tabData.accept(TheBackwoodsModItems.RECOVERED_FADED_SWORD.get());
 		} else if (tabData.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
 			tabData.accept(TheBackwoodsModBlocks.ROTTEN_OAK_PRESSURE_PLATE.get().asItem());
+		} else if (tabData.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+			tabData.accept(TheBackwoodsModBlocks.LIGNUM_CARO_TRAPDOOR.get().asItem());
 		}
 	}
 }

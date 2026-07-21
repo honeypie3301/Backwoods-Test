@@ -7,13 +7,21 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.item.ItemProperties;
 
+import net.mcreator.thebackwoods.procedures.GetMemoryShardModeProcedure;
 import net.mcreator.thebackwoods.item.*;
 import net.mcreator.thebackwoods.TheBackwoodsMod;
 
@@ -156,6 +164,8 @@ public class TheBackwoodsModItems {
 	public static final DeferredItem<Item> DECAYING_LEAVES;
 	public static final DeferredItem<Item> LIGNUM_CARO_SWORD;
 	public static final DeferredItem<Item> LIGNUM_CARO_ASH;
+	public static final DeferredItem<Item> SPLINTERED_OAK_PLANKS;
+	public static final DeferredItem<Item> LIGNUM_CARO_TRAPDOOR;
 	static {
 		BACKWOODS = REGISTRY.register("backwoods", BackwoodsItem::new);
 		SPLINTER_SPAWN_EGG = REGISTRY.register("splinter_spawn_egg", () -> new DeferredSpawnEggItem(TheBackwoodsModEntities.SPLINTER, -7643606, -3632054, new Item.Properties()));
@@ -294,6 +304,8 @@ public class TheBackwoodsModItems {
 		DECAYING_LEAVES = block(TheBackwoodsModBlocks.DECAYING_LEAVES);
 		LIGNUM_CARO_SWORD = REGISTRY.register("lignum_caro_sword", LignumCaroSwordItem::new);
 		LIGNUM_CARO_ASH = REGISTRY.register("lignum_caro_ash", LignumCaroAshItem::new);
+		SPLINTERED_OAK_PLANKS = block(TheBackwoodsModBlocks.SPLINTERED_OAK_PLANKS);
+		LIGNUM_CARO_TRAPDOOR = block(TheBackwoodsModBlocks.LIGNUM_CARO_TRAPDOOR);
 	}
 
 	// Start of user code block custom items
@@ -312,5 +324,16 @@ public class TheBackwoodsModItems {
 
 	private static DeferredItem<Item> doubleBlock(DeferredHolder<Block, Block> block, Item.Properties properties) {
 		return REGISTRY.register(block.getId().getPath(), () -> new DoubleHighBlockItem(block.get(), properties));
+	}
+
+	@EventBusSubscriber(Dist.CLIENT)
+	public static class ItemsClientSideHandler {
+		@SubscribeEvent
+		@OnlyIn(Dist.CLIENT)
+		public static void clientLoad(FMLClientSetupEvent event) {
+			event.enqueueWork(() -> {
+				ItemProperties.register(MEMORY_SHARD.get(), ResourceLocation.parse("the_backwoods:memory_shard_mode"), (itemStackToRender, clientWorld, entity, itemEntityId) -> (float) GetMemoryShardModeProcedure.execute(itemStackToRender));
+			});
+		}
 	}
 }

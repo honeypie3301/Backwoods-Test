@@ -64,6 +64,8 @@ public class TheBackwoodsModBlocks {
 	public static final DeferredBlock<Block> FRACTUS_PRIME_CORE;
 	public static final DeferredBlock<Block> LIGNUM_CARO;
 	public static final DeferredBlock<Block> DECAYING_LEAVES;
+	public static final DeferredBlock<Block> SPLINTERED_OAK_PLANKS;
+	public static final DeferredBlock<Block> LIGNUM_CARO_TRAPDOOR;
 	static {
 		BACKWOODS_PORTAL = REGISTRY.register("backwoods_portal", BackwoodsPortalBlock::new);
 		ASH_ROSE = REGISTRY.register("ash_rose", AshRoseBlock::new);
@@ -116,6 +118,8 @@ public class TheBackwoodsModBlocks {
 		FRACTUS_PRIME_CORE = REGISTRY.register("fractus_prime_core", FractusPrimeCoreBlock::new);
 		LIGNUM_CARO = REGISTRY.register("lignum_caro", LignumCaroBlock::new);
 		DECAYING_LEAVES = REGISTRY.register("decaying_leaves", DecayingLeavesBlock::new);
+		SPLINTERED_OAK_PLANKS = REGISTRY.register("splintered_oak_planks", SplinteredOakPlanksBlock::new);
+		LIGNUM_CARO_TRAPDOOR = REGISTRY.register("lignum_caro_trapdoor", LignumCaroTrapdoorBlock::new);
 	}
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

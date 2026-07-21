@@ -52,5 +52,7 @@ public class TheBackwoodsModFuels {
 			event.setBurnTime(1600);
 		else if (itemstack.getItem() == TheBackwoodsModBlocks.LIGNUM_CARO.get().asItem())
 			event.setBurnTime(700);
+		else if (itemstack.getItem() == TheBackwoodsModBlocks.LIGNUM_CARO_TRAPDOOR.get().asItem())
+			event.setBurnTime(300);
 	}
 }

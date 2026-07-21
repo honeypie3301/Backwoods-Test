@@ -19,9 +19,6 @@
     "itemTexture": "",
     "particleTexture": "",
     "blockSetType": "OAK",
-    "pottedPlant": {
-      "value": ""
-    },
     "leavesParticleChance": 0.0,
     "tintType": "No tint",
     "isItemTinted": false,
@@ -144,6 +141,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "SinkingAshOnBlockRightclicked"
+    },
     "onEntityCollides": {
       "name": "SinkingAshEntityCollidesInTheBlock"
     },

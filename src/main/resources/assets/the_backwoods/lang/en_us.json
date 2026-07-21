@@ -371,5 +371,9 @@
   "item.minecraft.splash_potion.effect.inoculation": "Splash Potion of Inoculation",
   "item.minecraft.tipped_arrow.effect.inoculation": "Arrow of Inoculation",
   "item.minecraft.lingering_potion.effect.inoculation": "Lingering Potion of Inoculation",
-  "item_group.the_backwoods.backwoods_tab": "Backwoods"
+  "block.the_backwoods.splintered_oak_planks": "Splintered Oak Planks",
+  "block.the_backwoods.splintered_oak_planks.description_1": "§8Sneak to place blocks on.",
+  "block.the_backwoods.splintered_oak_planks.description_0": "",
+  "block.the_backwoods.splintered_oak_planks.description_2": "",
+  "block.the_backwoods.lignum_caro_trapdoor": "Lignum Caro Trapdoor"
 }
